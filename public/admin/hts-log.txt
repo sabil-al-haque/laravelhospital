@@ -1,0 +1,18 @@
+HTTrack3.49-2+htsswf+htsjava launched on Wed, 07 Feb 2024 19:13:44 at https://rn53themes.net/themes/demo/lava-admin/index.html +*.png +*.gif +*.jpg +*.jpeg +*.css +*.js -ad.doubleclick.net/* -mime:application/foobar +https://rn53themes.net/themes/demo/lava-admin/index.html
+(winhttrack -qwC2%Ps2u1%s%uN0%I0p3DaK0H0%kf2A25000%f#f -F  -%F  -%l "en, *" https://rn53themes.net/themes/demo/lava-admin/index.html -O1 "E:\admin" +*.png +*.gif +*.jpg +*.jpeg +*.css +*.js -ad.doubleclick.net/* -mime:application/foobar +https://rn53themes.net/themes/demo/lava-admin/index.html )
+
+Information, Warnings and Errors reported for this mirror:
+note:	the hts-log.txt file, and hts-cache folder, may contain sensitive information,
+	such as username/password authentication for websites mirrored in this project
+	do not share these files/folders if you want these information to remain private
+
+19:14:58	Error: 	"Not Found" (404) at link https://rn53themes.net/themes/demo/lava-admin/fonts/fontawesome-webfont.svg?v=4.7.0 (from https://rn53themes.net/themes/demo/lava-admin/css/font-awesome.min.css)
+19:14:58	Error: 	"Not Found" (404) at link https://rn53themes.net/themes/demo/lava-admin/fonts/glyphicons-halflings-regular.eot (from https://rn53themes.net/themes/demo/lava-admin/css/bootstrap.css)
+19:14:58	Error: 	"Not Found" (404) at link https://rn53themes.net/themes/demo/lava-admin/fonts/glyphicons-halflings-regular.eot? (from https://rn53themes.net/themes/demo/lava-admin/css/bootstrap.css)
+19:14:58	Error: 	"Not Found" (404) at link https://rn53themes.net/themes/demo/lava-admin/fonts/glyphicons-halflings-regular.woff2 (from https://rn53themes.net/themes/demo/lava-admin/css/bootstrap.css)
+19:14:58	Error: 	"Not Found" (404) at link https://rn53themes.net/themes/demo/lava-admin/fonts/glyphicons-halflings-regular.woff (from https://rn53themes.net/themes/demo/lava-admin/css/bootstrap.css)
+19:14:58	Error: 	"Not Found" (404) at link https://rn53themes.net/themes/demo/lava-admin/fonts/glyphicons-halflings-regular.ttf (from https://rn53themes.net/themes/demo/lava-admin/css/bootstrap.css)
+19:14:58	Error: 	"Not Found" (404) at link https://rn53themes.net/themes/demo/lava-admin/fonts/glyphicons-halflings-regular.svg (from https://rn53themes.net/themes/demo/lava-admin/css/bootstrap.css)
+
+HTTrack Website Copier/3.49-2 mirror complete in 1 minutes 14 seconds : 102 links scanned, 94 files written (3669213 bytes overall) [2075955 bytes received at 28053 bytes/sec], 2078382 bytes transferred using HTTP compression in 69 files, ratio 21%
+(7 errors, 0 warnings, 0 messages)
