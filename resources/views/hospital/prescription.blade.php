@@ -31,35 +31,43 @@
                                 <thead>
                                     <tr>
                                         <th>ID</th>
-                                        <th>Name</th>
-                                        <th>Email Address</th>
-                                        <th>Phone Number</th>
-                                        <th>Symptom</th>
-                                        <th>Disease</th>
+                                        <th>Age</th>
                                         <th>Gender</th>
+                                        <th>Phone</th>
+                                        <th>Email</th>
                                         <th>Address</th>
+                                        <th>City</th>
+                                        <th>Area</th>
+                                        <th>Zip Code</th>
+                                        <th>Appointment Date</th>
+                                        <th>Start From</th>
+                                        <th>Ends On</th>
+                                        <th>Status</th>
                                         <th>Action</th>
-
-
                                     </tr>
                                 </thead>
                                 <tbody>
 
-                                    @foreach ($patients as $item)
+                                    @foreach ($appoints as $item)
                                     <tr>
                                         <td>{{ $item->id }}</td>
-                                        <td>{{ $item->name }}</td>
-                                        <td>{{ $item->email }}</td>
-                                        <td>{{ $item->phone }}</td>
-                                        <td>{{ $item->symtom }}</td>
-                                        <td>{{ $item->disease }}</td>
-                                        <td>{{ $item->gender }}</td>
-                                        <td>{{ $item->address }}</td>
+                                        <td>{{ $item->age }}</td>
+                                        <td>{{ $item->gender}}</td>
+                                        <td>{{ $item->phone}}</td>
+                                        <td>{{ $item->email}}</td>
+                                        <td>{{ $item->address}}</td>
+                                        <td>{{ $item->city}}</td>
+                                        <td>{{ $item->area}}</td>
+                                        <td>{{ $item->zip}}</td>
+                                        <td>{{ $item->date}}</td>
+                                        <td>{{ $item->start}}</td>
+                                        <td>{{ $item->end}}</td>
+                                        <td>{{ $item->status}}</td>
 
                                         <td>
-                                            <a href="{{ url('patient/'.$item->id.'/edit') }}" class="btn btn-success mx-2">Edit</a>
+                                            <a href="{{ url('appointment/'.$item->id.'/edit') }}" class="btn btn-success mx-2">Edit</a>
                                             <a
-                                            href="{{ url('patient/'.$item->id.'/delete') }}"
+                                            href="{{ url('appointment/'.$item->id.'/delete') }}"
                                             class="btn btn-danger mx-1"
                                             onclick="return confirm('Are You Sure?')"
                                             >

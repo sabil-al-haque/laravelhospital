@@ -1,3 +1,4 @@
+Pulok Biswas
 <!doctype html>
 <html lang="en">
   <head>
@@ -12,54 +13,47 @@
   </head>
   <body>
     <div class="container">
-
-    @if (session('status'))
-<div class="alert alert-success"> {{ session('status') }}</div>
-@endif
-<form action="{{ url('doctor/'.$doctors->id.'/edit') }}" method="POST">
-  {{$doctors}}
-    @csrf
-    @method('PUT')
-
-
+        <a href="{{ url('/home') }}" class="btn btn-primary my-4">Back</a>
+        <form action="{{ url('patient/'.$patients->id.'/edit') }}" method="POST">
+         {{$patients}}
+         @csrf
+         @method('PUT')
             <div class="mb-3">
                 <label for="" >Name</label>
-                <input type="text" name="name" value= "{{$doctors->name}}" class="form-control" placeholder="Enter Your Name">
+                <input type="text" name="name" value= "{{$patients->name}}"  class="form-control" placeholder="Enter Your Name">
                 @error('name')<span class="text-danger">{{ $message }}</span>@enderror
               </div>
               </div>
                 <label for="" >Email address</label>
-                <input type="email" name="email" value= "{{$doctors->email}}" class="form-control" placeholder="Enter Your Email Address">
+                <input type="email" name="email" value= "{{$patients->email}}" class="form-control" placeholder="Enter Your Email Address">
                 @error('email')<span class="text-danger">{{ $message }}</span>@enderror
               </div>
               <div class="mb-3">
                 <div class="mb-3">
                     <label for="" >Phone Number</label>
-                    <input type="text" name="phone" value= "{{$doctors->phone}}"  class="form-control" placeholder="Enter Your Phone Number">
+                    <input type="text" name="phone" value= "{{$patients->phone}}"  class="form-control" placeholder="Enter Your Phone Number">
                     @error('contact')<span class="text-danger">{{ $message }}</span>@enderror
               </div>
               <div class="mb-3">
-                    <label for="" >Speciality</label>
-                    <input type="text" name="speciality" value= "{{$doctors->speciality}}" class="form-control" placeholder="Enter Your Speciality">
+                    <label for="" >Symptom</label>
+                    <input type="text" name="symtom" value= "{{$patients->symtom}}" class="form-control" placeholder="Enter Your Symptom">
                     @error('contact')<span class="text-danger">{{ $message }}</span>@enderror
               </div>
               <div class="mb-3">
-                    <label for="" >Clinic Name</label>
-                    <input type="text" name="clinic" value= "{{$doctors->clinic}}" class="form-control" placeholder="Enter Your Clinic Name">
+                    <label for="" >Disease</label>
+                    <input type="text" name="disease" value= "{{$patients->disease}}" class="form-control" placeholder="Enter Your Disease ">
                     @error('contact')<span class="text-danger">{{ $message }}</span>@enderror
               </div>
+              <div class="mb-3">
+                <label for="" >Gender</label>
+                <input type="text" name="gender" value= "{{$patients->gender}}"  class="form-control" placeholder="Enter Your Gender">
+                @error('contact')<span class="text-danger">{{ $message }}</span>@enderror
+          </div>
             <div class="mb-3">
                 <label for="" >Address</label>
-                <input type="text" name="address" value= "{{$doctors->address}}" class="form-control" placeholder="Enter Your Full Address">
+                <input type="text" name="address" value= "{{$patients->address}}"  class="form-control" placeholder="Enter Your Full Address">
                 @error('address')<span class="text-danger">{{ $message }}</span>@enderror
               </div>
-
-              <div class="mb-3">
-                    <label for="" >Gender</label>
-                    <input type="text" name="gender" value= "{{$doctors->gender}}"  class="form-control" placeholder="Enter Your Gender">
-                    @error('contact')<span class="text-danger">{{ $message }}</span>@enderror
-              </div>
-
             <input type="submit" class="btn btn-primary my-4" value="Submit">
           </form>
     </div>

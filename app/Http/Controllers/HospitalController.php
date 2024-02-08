@@ -6,12 +6,15 @@ use Illuminate\Http\Request;
 use App\Models\Doctor;
 use App\Models\Patients;
 use App\Models\Catagories;
+use App\Models\Appointments;
+use App\Models\Prescriptions;
 
 class HospitalController extends Controller
 {
     public function d_index(){
-        $doctors = Doctor::all();
-        
+
+        $doctors = Doctor::get();
+
         return view('hospital.doctor', ['doctors' => $doctors]);
         
     }
@@ -55,6 +58,74 @@ class HospitalController extends Controller
 
 
 
+    public function dedit (int $id){
+        $doctors = Doctor::findOrFail($id);
+        return view('hospital.doctor_edit',compact('doctors'));
+    }
+
+
+
+
+    public function dupdate(Request $request, int $id){
+        $request->validate([
+            'name' => 'required|max:25|string',           
+            'email' => 'required|email',           
+            'phone' => 'required|max:11',
+            'speciality' => 'required|max:25|string',
+            'clinic' => 'required|max:25|string',
+            'address' => 'required|max:191|string',
+            'gender' => 'required|max:25|string',
+            
+    
+        ]);
+        Doctor::create([
+        'name'=> $request->name,      
+        'email'=> $request->email,
+        'phone'=> $request->phone,
+        'speciality'=> $request->speciality,
+        'clinic'=> $request->clinic,
+        'address'=> $request->address,
+        'gender'=> $request->gender,
+    
+        ]);
+        return redirect()->back()->with('status','Doctor Update');
+    }
+
+    public function ddelete(int $id){
+        $doctors = Doctor::findOrFail($id);
+        $doctors->delete();
+        return redirect()->back()->with('status','Doctor Deleted');
+
+    }
+
+
+
+
+
+
+
+
+
+    public function p_index(){
+
+        $patients = Patients::get();
+
+        return view('hospital.patient', ['patients' => $patients]);
+        
+    }
+
+    
+
+
+    public function p_create(){
+        
+        return view('hospital.create_patient');
+        
+    }
+
+
+
+
 
     
     public function store_patient(Request $request){
@@ -89,6 +160,49 @@ class HospitalController extends Controller
     }
 
 
+    public function pedit (int $id){
+        $patients = Patients::findOrFail($id);
+        return view('hospital.patient_edit',compact('patients'));
+    }
+
+
+
+    public function pupdate(Request $request, int $id){
+        $request->validate([
+            'name' => 'required|max:25|string',           
+            'email' => 'required|email',           
+            'phone' => 'required|max:11',
+            'symtom' => 'required|max:25|string',
+            'disease' => 'required|max:25|string',
+            'gender' => 'required|max:25|string',
+            'address' => 'required|max:191|string',
+            
+            
+    
+        ]);
+        Patients::create([
+        'name'=> $request->name,      
+        'email'=> $request->email,
+        'phone'=> $request->phone,
+        'symtom'=> $request->symtom,
+        'disease'=> $request->disease,
+        'gender'=> $request->gender,
+        'address'=> $request->address,
+        
+    
+        ]);
+        return redirect()->back()->with('status','Patient Update');
+    }
+
+    public function pdelete(int $id){
+        $patients = Patients::findOrFail($id);
+        $patients->delete();
+        return redirect()->back()->with('status','Patient Deleted');
+
+    }
+
+
+
     public function store_catagory(Request $request){
         $request->validate([
             'catagory' => 'required|max:25|string',
@@ -108,8 +222,9 @@ class HospitalController extends Controller
 
 
     public function catagory(){
+        $categories  = Catagories ::get() ;
         
-        return view('hospital.catagory');
+        return view('hospital.catagory',['categories' => $categories]);
         
     }
 
@@ -121,31 +236,95 @@ class HospitalController extends Controller
 
 
 
-    public function p_index(){
-        
-        return view('hospital.patient');
-        
+    public function cedit (int $id){
+        $categories = Catagories::findOrFail($id);
+        return view('hospital.category_edit',compact('categories'));
     }
-    public function p_create(){
+
+    public function cupdate(Request $request, int $id){
+        $request->validate([
+            'catagory' => 'required|max:25|string',
+            'sub_catagory' => 'required|max:25|string',            
+    
+        ]);
+        Catagories::create([
+        'catagory'=> $request->catagory,
+        'sub_catagory'=> $request->sub_catagory,
         
-        return view('hospital.create_patient');
-        
+        ]);
+        return redirect()->back()->with('status','Doctor Update');
     }
-    public function admin_index(){
-        
-        return view('admin.index');
-        
+
+    public function cdelete(int $id){
+        $doctors = Catagories::findOrFail($id);
+        $doctors->delete();
+        return redirect()->back()->with('status','Category Deleted');
+
     }
 
 
 
-    public function dedit (int $id){
-        $doctors = Doctor::findOrFail($id);
-        return $doctors;
-        return view('hospital.doctor_edit',compact('doctors'));
+
+
+
+
+
+    public function a_index(){
+
+        $appointments = Appointments::get();
+
+        return view('hospital.appointment', ['appointments' => $appointments]);
+        
     }
 
-    public function dupdate(Request $request, int $id){
+    public function a_create(){
+        
+        return view('hospital.create_appointment');
+        
+    }
+
+
+    public function store_appointment(Request $request){
+        $request->validate([
+            'name' => 'required|max:25|string',
+            
+            'email' => 'required|email',
+            
+            'phone' => 'required|max:11',
+            'speciality' => 'required|max:25|string',
+            'clinic' => 'required|max:25|string',
+            'address' => 'required|max:191|string',
+            'gender' => 'required|max:25|string',
+            
+    
+        ]);
+        Appointments::create([
+        'name'=> $request->name,
+        
+        'email'=> $request->email,
+        'phone'=> $request->phone,
+        'speciality'=> $request->speciality,
+        'clinic'=> $request->clinic,
+        
+
+        'address'=> $request->address,
+        'gender'=> $request->gender,
+    
+        ]);
+        return redirect('create_appointment')->with('status','Appointments Created');
+    }
+
+
+
+    public function aedit (int $id){
+        $appointments = Appointments::findOrFail($id);
+        return view('hospital.appointment_edit',compact('appointments'));
+    }
+
+
+
+
+    public function aupdate(Request $request, int $id){
         $request->validate([
             'name' => 'required|max:25|string',           
             'email' => 'required|email',           
@@ -157,7 +336,7 @@ class HospitalController extends Controller
             
     
         ]);
-        Doctor::create([
+        Appointments::create([
         'name'=> $request->name,      
         'email'=> $request->email,
         'phone'=> $request->phone,
@@ -167,13 +346,117 @@ class HospitalController extends Controller
         'gender'=> $request->gender,
     
         ]);
-        return redirect()->back()->with('status','Doctor Update');
+        return redirect()->back()->with('status','Appointments Update');
     }
 
-    public function ddelete(int $id){
-        $doctors = Doctor::findOrFail($id);
-        $doctors->delete();
-        return redirect()->back()->with('status','Doctor Deleted');
+    public function adelete(int $id){
+        $appointments = Appointments::findOrFail($id);
+        $appointments->delete();
+        return redirect()->back()->with('status','Appointments Deleted');
 
     }
+
+
+
+
+    public function prescription_index(){
+
+        $prescriptions = Prescriptions::get();
+
+        return view('hospital.prescription', ['prescriptions' => $prescriptions]);
+        
+    }
+
+    public function prescription_create(){
+        
+        return view('hospital.create_prescription');
+        
+    }
+
+
+    public function store_prescription(Request $request){
+        $request->validate([
+            'name' => 'required|max:25|string',
+            
+            'email' => 'required|email',
+            
+            'phone' => 'required|max:11',
+            'speciality' => 'required|max:25|string',
+            'clinic' => 'required|max:25|string',
+            'address' => 'required|max:191|string',
+            'gender' => 'required|max:25|string',
+            
+    
+        ]);
+        Prescriptions::create([
+        'name'=> $request->name,
+        
+        'email'=> $request->email,
+        'phone'=> $request->phone,
+        'speciality'=> $request->speciality,
+        'clinic'=> $request->clinic,
+        
+
+        'address'=> $request->address,
+        'gender'=> $request->gender,
+    
+        ]);
+        return redirect('create_prescription')->with('status','Profile Created');
+    }
+
+
+
+    public function prescription_edit (int $id){
+        $prescriptions = Prescriptions::findOrFail($id);
+        return view('hospital.prescription_edit',compact('prescriptions'));
+    }
+
+
+
+
+    public function prescription_update(Request $request, int $id){
+        $request->validate([
+            'name' => 'required|max:25|string',           
+            'email' => 'required|email',           
+            'phone' => 'required|max:11',
+            'speciality' => 'required|max:25|string',
+            'clinic' => 'required|max:25|string',
+            'address' => 'required|max:191|string',
+            'gender' => 'required|max:25|string',
+            
+    
+        ]);
+        Prescriptions::create([
+        'name'=> $request->name,      
+        'email'=> $request->email,
+        'phone'=> $request->phone,
+        'speciality'=> $request->speciality,
+        'clinic'=> $request->clinic,
+        'address'=> $request->address,
+        'gender'=> $request->gender,
+    
+        ]);
+        return redirect()->back()->with('status','prescription Update');
+    }
+
+    public function prescription_delete(int $id){
+        $prescriptions = Prescriptions::findOrFail($id);
+        $prescriptions->delete();
+        return redirect()->back()->with('status','prescription Deleted');
+
+    }
+
+
+
+    public function admin_index(){
+        
+        return view('admin.index');
+        
+    }
+
+
+
+
+
 }
+

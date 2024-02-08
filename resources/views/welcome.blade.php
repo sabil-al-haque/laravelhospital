@@ -21,6 +21,10 @@
                             <a href="{{ url('/create_patient') }}" class="btn btn-primary my-4">Create Patient</a>
                             <a href="{{ url('/catagory') }}" class="btn btn-primary my-4">catagory</a>
                             <a href="{{ url('/create_catagory') }}" class="btn btn-primary my-4">Create Catagory</a>
+                            <a href="{{ url('/appointment') }}" class="btn btn-primary my-4">Appointment</a>
+                            <a href="{{ url('/create_appointment') }}" class="btn btn-primary my-4">Create Appointment</a>
+                            <a href="{{ url('/prescription') }}" class="btn btn-primary my-4">Prescription</a>
+                            <a href="{{ url('/create_prescription') }}" class="btn btn-primary my-4">Create Prescription</a>
 
                     </div>
                  </div>
