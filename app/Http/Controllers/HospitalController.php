@@ -78,7 +78,7 @@ class HospitalController extends Controller
             
     
         ]);
-        Doctor::create([
+        Doctor::findOrFail($id)->update([
         'name'=> $request->name,      
         'email'=> $request->email,
         'phone'=> $request->phone,
@@ -180,7 +180,7 @@ class HospitalController extends Controller
             
     
         ]);
-        Patients::create([
+        Patients::findOrFail($id)->update([
         'name'=> $request->name,      
         'email'=> $request->email,
         'phone'=> $request->phone,
@@ -247,7 +247,7 @@ class HospitalController extends Controller
             'sub_catagory' => 'required|max:25|string',            
     
         ]);
-        Catagories::create([
+        Catagories::findOrFail($id)->update([
         'catagory'=> $request->catagory,
         'sub_catagory'=> $request->sub_catagory,
         
@@ -256,8 +256,8 @@ class HospitalController extends Controller
     }
 
     public function cdelete(int $id){
-        $doctors = Catagories::findOrFail($id);
-        $doctors->delete();
+        $categories = Catagories::findOrFail($id);
+        $categories->delete();
         return redirect()->back()->with('status','Category Deleted');
 
     }
@@ -283,19 +283,19 @@ class HospitalController extends Controller
     public function store_appointment(Request $request){
         $request->validate([
             'name' => 'required|max:25|string',
-            'age' => 'required|max:191|string',
-            'gender' => 'required|max:191|string',
+            'age' => 'required',
+            'gender' => 'required',
             'phone' => 'required|max:191|string',
             'email' => 'required|email',
             'address' => 'required|max:191|string',
             'city' => 'required|max:191|string',
             'area' => 'required|max:191|string',
             'zip' => 'required|max:191|string',
-            'data' => 'required|max:191|string',
+            'date' => 'required',
             'availability' => 'required|max:191|string',
-            'start' => 'required|max:191|string',
-            'end' => 'required|max:191|string',
-            'status' => 'required|max:191|string',
+            'start' => 'required',
+            'end' => 'required',
+            'status' => 'required',
             
         ]);
         Appointments::create([
@@ -308,7 +308,7 @@ class HospitalController extends Controller
         'city'=> $request->city,
         'area'=> $request->area,
         'zip'=> $request->zip,
-        'data'=> $request->data,
+        'date'=> $request->date,
         'availability'=> $request->availability,
         'start'=> $request->start,
         'end'=> $request->end,
@@ -332,22 +332,22 @@ class HospitalController extends Controller
     public function aupdate(Request $request, int $id){
         $request->validate([
             'name' => 'required|max:25|string',
-            'age' => 'required|max:191|string',
-            'gender' => 'required|max:191|string',
+            'age' => 'required',
+            'gender' => 'required',
             'phone' => 'required|max:191|string',
             'email' => 'required|email',
             'address' => 'required|max:191|string',
             'city' => 'required|max:191|string',
             'area' => 'required|max:191|string',
             'zip' => 'required|max:191|string',
-            'data' => 'required|max:191|string',
+            'date' => 'required',
             'availability' => 'required|max:191|string',
-            'start' => 'required|max:191|string',
-            'end' => 'required|max:191|string',
-            'status' => 'required|max:191|string',
+            'start' => 'required',
+            'end' => 'required',
+            'status' => 'required',
             
         ]);
-        Appointments::create([
+        Appointments::findOrFail($id)->update([
         'name'=> $request->name,
         'age'=> $request->age,
         'gender'=> $request->gender,
@@ -357,7 +357,7 @@ class HospitalController extends Controller
         'city'=> $request->city,
         'area'=> $request->area,
         'zip'=> $request->zip,
-        'data'=> $request->data,
+        'date'=> $request->date,
         'availability'=> $request->availability,
         'start'=> $request->start,
         'end'=> $request->end,
@@ -380,9 +380,9 @@ class HospitalController extends Controller
 
     public function prescription_index(){
 
-        $prescriptions = Prescriptions::get();
+        $patientData = Prescriptions::get();
 
-        return view('hospital.prescription', ['prescriptions' => $prescriptions]);
+        return view('hospital.prescription', ['patientData' => $patientData]);
         
     }
 
@@ -397,14 +397,14 @@ class HospitalController extends Controller
         $request->validate([
             'name' => 'required|max:25|string',
             'age' => 'required|max:191|string',
-            'date' => 'required|max:191|string',
+            'date' => 'required',
             'phone' => 'required|max:191|string',
             'email' => 'required|max:191|string',
             'address' => 'required|max:191|string',
             'medication' => 'required|max:191|string',
             'additional_inf' => 'required|max:191|string',
             'sign_of_doctor' => 'required|max:191|string',
-            'signed_date' => 'required|max:191|string',
+            'signed_date' => 'required',
             
             
     
@@ -428,8 +428,8 @@ class HospitalController extends Controller
 
 
     public function prescription_edit (int $id){
-        $prescriptions = Prescriptions::findOrFail($id);
-        return view('hospital.prescription_edit',compact('prescriptions'));
+        $patientData = Prescriptions::findOrFail($id);
+        return view('hospital.prescription_edit',compact('patientData'));
     }
 
 
@@ -438,20 +438,20 @@ class HospitalController extends Controller
     public function prescription_update(Request $request, int $id){
         $request->validate([
             'name' => 'required|max:25|string',
-            'age' => 'required|max:191|string',
-            'date' => 'required|max:191|string',
+            'age' => 'required|max:191|integer',
+            'date' => 'required',
             'phone' => 'required|max:191|string',
-            'email' => 'required|max:191|string',
+            'email' => 'required|max:191|email',
             'address' => 'required|max:191|string',
             'medication' => 'required|max:191|string',
             'additional_inf' => 'required|max:191|string',
             'sign_of_doctor' => 'required|max:191|string',
-            'signed_date' => 'required|max:191|string',
+            'signed_date' => 'required',
             
             
     
         ]);
-        Prescriptions::create([
+        Prescriptions::findOrFail($id)->update([
         'name'=> $request->name,
         'age'=> $request->age,
         'date'=> $request->date,
@@ -468,8 +468,8 @@ class HospitalController extends Controller
     }
 
     public function prescription_delete(int $id){
-        $prescriptions = Prescriptions::findOrFail($id);
-        $prescriptions->delete();
+        $patientData = Prescriptions::findOrFail($id);
+        $patientData->delete();
         return redirect()->back()->with('status','prescription Deleted');
 
     }

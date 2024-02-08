@@ -9,9 +9,11 @@
 <body>
 
 <div class="container mt-5">
-<form method="post" action="{{route('appointment.store')}}">
+        @if (session('status'))
+        <div class="alert alert-success"> {{ session('status') }}</div>
+        @endif
+    <form action="{{route('appointment.store')}}" method="POST">
              @csrf 
-             @method('post')
         <div class="form-row">
             <div class="form-group col-md-6">
                 <label for="patientName">Patient Name</label>
@@ -59,11 +61,11 @@
         <div class="form-row">
             <div class="form-group col-md-6">
                 <label for="zipCode">Zip Code</label>
-                <input type="text" name="zip" class="form-control" id="zipCode" placeholder="Enter zip code" required>
+                <input type="text" name="zip" class="form-control" id="zip" placeholder="Enter zip code" required>
             </div>
             <div class="form-group col-md-6">
                 <label for="appointmentDate">Appointment Date</label>
-                <input type="date" name="date" class="form-control" id="appointmentDate" required>
+                <input type="date" name="date" class="form-control" id="date" required>
             </div>
         </div>
         <div class="form-row">
@@ -73,13 +75,13 @@
             </div>
             <div class="form-group col-md-6">
                 <label for="startTime">Start From</label>
-                <input type="time" name="start" class="form-control" id="startTime" required>
+                <input type="time" name="start" class="form-control" id="start" required>
             </div>
         </div>
         <div class="form-row">
             <div class="form-group col-md-6">
                 <label for="endTime">Ends On</label>
-                <input type="time" name="end" class="form-control" id="endTime" required>
+                <input type="time" name="end" class="form-control" id="end" required>
             </div>
             <div class="form-group col-md-6">
                 <label for="status">Status</label>
