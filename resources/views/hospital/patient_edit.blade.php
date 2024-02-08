@@ -15,6 +15,9 @@
 <body>
     <div class="container">
         <a href="{{ url('/home') }}" class="btn btn-primary my-4">Back</a>
+        @if (session('status'))
+        <div class="alert alert-success"> {{ session('status') }}</div>
+        @endif
 
         <form action="{{ url('patient/'.$patients->id.'/edit') }}" method="POST">
             @csrf
@@ -40,7 +43,7 @@
 
             <div class="mb-3">
                 <label for="symptom">Symptom</label>
-                <input type="text" name="symptom" value="{{ $patients->symptom }}" class="form-control" placeholder="Enter Your Symptom">
+                <input type="text" name="symtom" value="{{ $patients->symtom }}" class="form-control" placeholder="Enter Your Symptom">
                 @error('symptom')<span class="text-danger">{{ $message }}</span>@enderror
             </div>
 

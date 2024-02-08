@@ -28,10 +28,8 @@ class HospitalController extends Controller
 
     public function store_doctor(Request $request){
         $request->validate([
-            'name' => 'required|max:25|string',
-            
-            'email' => 'required|email',
-            
+            'name' => 'required|max:25|string',           
+            'email' => 'required|email',            
             'phone' => 'required|max:11',
             'speciality' => 'required|max:25|string',
             'clinic' => 'required|max:25|string',
@@ -42,13 +40,10 @@ class HospitalController extends Controller
         ]);
         Doctor::create([
         'name'=> $request->name,
-        
         'email'=> $request->email,
         'phone'=> $request->phone,
         'speciality'=> $request->speciality,
         'clinic'=> $request->clinic,
-        
-
         'address'=> $request->address,
         'gender'=> $request->gender,
     
@@ -56,15 +51,10 @@ class HospitalController extends Controller
         return redirect('create_doctor')->with('status','Profile Created');
     }
 
-
-
     public function dedit (int $id){
         $doctors = Doctor::findOrFail($id);
         return view('hospital.doctor_edit',compact('doctors'));
     }
-
-
-
 
     public function dupdate(Request $request, int $id){
         $request->validate([
@@ -99,13 +89,6 @@ class HospitalController extends Controller
     }
 
 
-
-
-
-
-
-
-
     public function p_index(){
 
         $patients = Patients::get();
@@ -114,46 +97,30 @@ class HospitalController extends Controller
         
     }
 
-    
-
-
     public function p_create(){
-        
         return view('hospital.create_patient');
         
     }
-
-
-
-
-
     
     public function store_patient(Request $request){
         $request->validate([
-            'name' => 'required|max:25|string',
-            
-            'email' => 'required|email',
-            
+            'name' => 'required|max:25|string',          
+            'email' => 'required|email',            
             'phone' => 'required|max:11',
             'symtom' => 'required|max:25|string',
             'disease' => 'required|max:25|string',
             'gender' => 'required|max:25|string',
-            'address' => 'required|max:191|string',
-            
-            
+            'address' => 'required|max:191|string',     
     
         ]);
         Patients::create([
-        'name'=> $request->name,
-        
+        'name'=> $request->name,        
         'email'=> $request->email,
         'phone'=> $request->phone,
         'symtom'=> $request->symtom,
-        'disease'=> $request->disease,
-        
+        'disease'=> $request->disease,       
         'gender'=> $request->gender,
-        'address'=> $request->address,
-        
+        'address'=> $request->address,     
     
         ]);
         return redirect('create_patient')->with('status','Profile Created');
@@ -165,8 +132,6 @@ class HospitalController extends Controller
         return view('hospital.patient_edit',compact('patients'));
     }
 
-
-
     public function pupdate(Request $request, int $id){
         $request->validate([
             'name' => 'required|max:25|string',           
@@ -175,9 +140,7 @@ class HospitalController extends Controller
             'symtom' => 'required|max:25|string',
             'disease' => 'required|max:25|string',
             'gender' => 'required|max:25|string',
-            'address' => 'required|max:191|string',
-            
-            
+            'address' => 'required|max:191|string',      
     
         ]);
         Patients::findOrFail($id)->update([
