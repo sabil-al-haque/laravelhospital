@@ -9,6 +9,7 @@
 <body>
 
 <div class="container mt-5">
+<a href="{{ url('/home') }}" class="btn btn-primary my-4">Back</a>
 <form method="post" action="{{ url('prescription/'.$patientData->id.'/edit') }}">
             {{$patientData}}
             @csrf

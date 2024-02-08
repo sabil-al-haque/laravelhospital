@@ -9,6 +9,7 @@
 <body>
 
 <div class="container mt-5">
+<a href="{{ url('/home') }}" class="btn btn-primary my-4">Back</a>
         @if (session('status'))
         <div class="alert alert-success"> {{ session('status') }}</div>
         @endif

@@ -83,7 +83,7 @@
                         <td>{{ $item->signed_date }}</td>
                         <td>
                             <a href="{{ url('prescription/'.$item->id.'/edit') }}" class="btn btn-success mx-2">Edit</a>
-                            <a href="{{ url('appointprescriptionment/'.$item->id.'/delete') }}" class="btn btn-danger mx-1" onclick="return confirm('Are You Sure?')">Delete</a>
+                            <a href="{{ url('prescription/'.$item->id.'/delete') }}" class="btn btn-danger mx-1" onclick="return confirm('Are You Sure?')">Delete</a>
                         </td>
                     </tr>
                 @endforeach

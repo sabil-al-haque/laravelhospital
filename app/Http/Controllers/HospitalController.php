@@ -438,10 +438,10 @@ class HospitalController extends Controller
     public function prescription_update(Request $request, int $id){
         $request->validate([
             'name' => 'required|max:25|string',
-            'age' => 'required|max:191|integer',
+            'age' => 'required|max:191|string',
             'date' => 'required',
             'phone' => 'required|max:191|string',
-            'email' => 'required|max:191|email',
+            'email' => 'required|max:191|string',
             'address' => 'required|max:191|string',
             'medication' => 'required|max:191|string',
             'additional_inf' => 'required|max:191|string',
