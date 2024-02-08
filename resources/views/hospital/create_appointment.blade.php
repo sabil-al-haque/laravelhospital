@@ -1,64 +1,102 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <title>Appointment Form</title>
+</head>
+<body>
 
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-
-    <title>Curd</title>
-  </head>
-  <body>
-    <div class="container">
-        <a href="{{ url('/home') }}" class="btn btn-primary my-4">Back</a>
-        <form method="post" action="{{route('doctor.store')}}">
+<div class="container mt-5">
+<form method="post" action="{{route('appointment.store')}}">
              @csrf 
              @method('post')
-            <div class="mb-3">
-                <label for="" >Name</label>
-                <input type="text" name="name"  class="form-control" placeholder="Enter Your Name">
-                @error('name')<span class="text-danger">{{ $message }}</span>@enderror
-              </div>
-              </div>
-                <label for="" >Email address</label>
-                <input type="email" name="email" class="form-control" placeholder="Enter Your Email Address">
-                @error('email')<span class="text-danger">{{ $message }}</span>@enderror
-              </div>
-              <div class="mb-3">
-                <div class="mb-3">
-                    <label for="" >Phone Number</label>
-                    <input type="text" name="phone"  class="form-control" placeholder="Enter Your Phone Number">
-                    @error('contact')<span class="text-danger">{{ $message }}</span>@enderror
-              </div>
-              <div class="mb-3">
-                    <label for="" >Speciality</label>
-                    <input type="text" name="speciality"  class="form-control" placeholder="Enter Your Speciality">
-                    @error('contact')<span class="text-danger">{{ $message }}</span>@enderror
-              </div>
-              <div class="mb-3">
-                    <label for="" >Clinic Name</label>
-                    <input type="text" name="clinic"  class="form-control" placeholder="Enter Your Clinic Name">
-                    @error('contact')<span class="text-danger">{{ $message }}</span>@enderror
-              </div>
-            <div class="mb-3">
-                <label for="" >Address</label>
-                <input type="text" name="address"  class="form-control" placeholder="Enter Your Full Address">
-                @error('address')<span class="text-danger">{{ $message }}</span>@enderror
-              </div>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="patientName">Patient Name</label>
+                <input type="text" name="name" class="form-control" id="patientName" placeholder="Enter patient name" required>
+            </div>
+            <div class="form-group col-md-6">
+                <label for="age">Age</label>
+                <input type="number" name="age" class="form-control" id="age" placeholder="Enter age" required>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="gender">Gender</label>
+                <select class="form-control" name="gender" id="gender" required>
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                    <option value="other">Other</option>
+                </select>
+            </div>
+            <div class="form-group col-md-6">
+                <label for="phone">Phone</label>
+                <input type="tel" name="phone" class="form-control" id="phone" placeholder="Enter phone number" required>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="email">Email</label>
+                <input type="email" name="email" class="form-control" id="email" placeholder="Enter email" required>
+            </div>
+            <div class="form-group col-md-6">
+                <label for="address">Address</label>
+                <input type="text" name="address" class="form-control" id="address" placeholder="Enter address" required>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="city">City</label>
+                <input type="text" name="city" class="form-control" id="city" placeholder="Enter city" required>
+            </div>
+            <div class="form-group col-md-6">
+                <label for="area">Area</label>
+                <input type="text" name="area" class="form-control" id="area" placeholder="Enter area" required>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="zipCode">Zip Code</label>
+                <input type="text" name="zip" class="form-control" id="zipCode" placeholder="Enter zip code" required>
+            </div>
+            <div class="form-group col-md-6">
+                <label for="appointmentDate">Appointment Date</label>
+                <input type="date" name="date" class="form-control" id="appointmentDate" required>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="availability">Availability</label>
+                <input type="text" name="availability" class="form-control" id="availability" placeholder="Enter availability" required>
+            </div>
+            <div class="form-group col-md-6">
+                <label for="startTime">Start From</label>
+                <input type="time" name="start" class="form-control" id="startTime" required>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="endTime">Ends On</label>
+                <input type="time" name="end" class="form-control" id="endTime" required>
+            </div>
+            <div class="form-group col-md-6">
+                <label for="status">Status</label>
+                <select class="form-control" name="status" id="status" required>
+                    <option value="scheduled">Scheduled</option>
+                    <option value="cancelled">Cancelled</option>
+                    <option value="completed">Completed</option>
+                </select>
+            </div>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>
 
-              <div class="mb-3">
-                    <label for="" >Gender</label>
-                    <input type="text" name="gender"  class="form-control" placeholder="Enter Your Gender">
-                    @error('contact')<span class="text-danger">{{ $message }}</span>@enderror
-              </div>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 
-            <input type="submit" class="btn btn-primary my-4" value="Submit">
-          </form>
-    </div>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-
-  </body>
+</body>
 </html>

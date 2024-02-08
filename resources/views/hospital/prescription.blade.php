@@ -1,97 +1,60 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <title>Patient Prescription View</title>
+</head>
+<body>
 
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<div class="container mt-5">
+    <h2>{{ $patientData->name }} Prescription</h2>
+    <table class="table mt-4">
+        <tbody>
+            <tr>
+                <th scope="row">Patient's Name</th>
+                <td>{{ $patientData->name }}</td>
+            </tr>
+            <tr>
+                <th scope="row">Age</th>
+                <td>{{ $patientData->age }}</td>
+            </tr>
+            <tr>
+                <th scope="row">Date</th>
+                <td>{{ $patientData->date }}</td>
+            </tr>
+            <tr>
+                <th scope="row">Phone & Email</th>
+                <td>{{ $patientData->phone }} | {{ $patientData->email }}</td>
+            </tr>
+            <tr>
+                <th scope="row">Address</th>
+                <td>{{ $patientData->address }}</td>
+            </tr>
+            <tr>
+                <th scope="row">Medication Details</th>
+                <td>{{ $patientData->medicationDetails }}</td>
+            </tr>
+            <tr>
+                <th scope="row">Additional Information</th>
+                <td>{{ $patientData->additionalInformation }}</td>
+            </tr>
+            <tr>
+                <th scope="row">Doctor's Signature</th>
+                <td>{{ $patientData->doctorsSignature }}</td>
+            </tr>
+            <tr>
+                <th scope="row">Signed Date</th>
+                <td>{{ $patientData->signedDate }}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
 
-    <title>Curd</title>
-  </head>
-  <body>
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="card">
-                     <div class="card-header">
-                            <a href="{{ url('/doctor') }}" class="btn btn-primary my-4">Doctor</a>
-                            <a href="{{ url('/create_doctor') }}" class="btn btn-primary my-4">Create Doctor</a>
-                            <a href="{{ url('/patient') }}" class="btn btn-primary my-4">Patient</a>
-                            <a href="{{ url('/create_patient') }}" class="btn btn-primary my-4">Create Patient</a>
-                            <a href="{{ url('/catagory') }}" class="btn btn-primary my-4">catagory</a>
-                            <a href="{{ url('/create_catagory') }}" class="btn btn-primary my-4">Create Catagory</a>
-                            <a href="{{ url('/appointment') }}" class="btn btn-primary my-4">Appointment</a>
-                            <a href="{{ url('/create_appointment') }}" class="btn btn-primary my-4">Create Appointment</a>
-                            <a href="{{ url('/prescription') }}" class="btn btn-primary my-4">Prescription</a>
-                            <a href="{{ url('/create_prescription') }}" class="btn btn-primary my-4">Create Prescription</a>
-                        <div class="card-body">
-                            <table class="table table-brodered table-striped">
-                                <thead>
-                                    <tr>
-                                        <th>ID</th>
-                                        <th>Age</th>
-                                        <th>Gender</th>
-                                        <th>Phone</th>
-                                        <th>Email</th>
-                                        <th>Address</th>
-                                        <th>City</th>
-                                        <th>Area</th>
-                                        <th>Zip Code</th>
-                                        <th>Appointment Date</th>
-                                        <th>Start From</th>
-                                        <th>Ends On</th>
-                                        <th>Status</th>
-                                        <th>Action</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 
-                                    @foreach ($appoints as $item)
-                                    <tr>
-                                        <td>{{ $item->id }}</td>
-                                        <td>{{ $item->age }}</td>
-                                        <td>{{ $item->gender}}</td>
-                                        <td>{{ $item->phone}}</td>
-                                        <td>{{ $item->email}}</td>
-                                        <td>{{ $item->address}}</td>
-                                        <td>{{ $item->city}}</td>
-                                        <td>{{ $item->area}}</td>
-                                        <td>{{ $item->zip}}</td>
-                                        <td>{{ $item->date}}</td>
-                                        <td>{{ $item->start}}</td>
-                                        <td>{{ $item->end}}</td>
-                                        <td>{{ $item->status}}</td>
-
-                                        <td>
-                                            <a href="{{ url('appointment/'.$item->id.'/edit') }}" class="btn btn-success mx-2">Edit</a>
-                                            <a
-                                            href="{{ url('appointment/'.$item->id.'/delete') }}"
-                                            class="btn btn-danger mx-1"
-                                            onclick="return confirm('Are You Sure?')"
-                                            >
-                                            Delete
-                                        </a>
-                                        </td>
-                                    </tr>
-
-                                    @endforeach
-                                </tbody>
-
-
-                            </table>
-
-
-
-                        </div>
-                    </div>
-                 </div>
-            </div>
-        </div>
-    </div>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-
-  </body>
+</body>
 </html>

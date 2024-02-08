@@ -265,10 +265,6 @@ class HospitalController extends Controller
 
 
 
-
-
-
-
     public function a_index(){
 
         $appointments = Appointments::get();
@@ -287,28 +283,37 @@ class HospitalController extends Controller
     public function store_appointment(Request $request){
         $request->validate([
             'name' => 'required|max:25|string',
-            
+            'age' => 'required|max:191|string',
+            'gender' => 'required|max:191|string',
+            'phone' => 'required|max:191|string',
             'email' => 'required|email',
-            
-            'phone' => 'required|max:11',
-            'speciality' => 'required|max:25|string',
-            'clinic' => 'required|max:25|string',
             'address' => 'required|max:191|string',
-            'gender' => 'required|max:25|string',
+            'city' => 'required|max:191|string',
+            'area' => 'required|max:191|string',
+            'zip' => 'required|max:191|string',
+            'data' => 'required|max:191|string',
+            'availability' => 'required|max:191|string',
+            'start' => 'required|max:191|string',
+            'end' => 'required|max:191|string',
+            'status' => 'required|max:191|string',
             
-    
         ]);
         Appointments::create([
         'name'=> $request->name,
-        
-        'email'=> $request->email,
-        'phone'=> $request->phone,
-        'speciality'=> $request->speciality,
-        'clinic'=> $request->clinic,
-        
-
-        'address'=> $request->address,
+        'age'=> $request->age,
         'gender'=> $request->gender,
+        'phone'=> $request->phone,
+        'email'=> $request->email,
+        'address'=> $request->address,
+        'city'=> $request->city,
+        'area'=> $request->area,
+        'zip'=> $request->zip,
+        'data'=> $request->data,
+        'availability'=> $request->availability,
+        'start'=> $request->start,
+        'end'=> $request->end,
+        'status'=> $request->status,
+    
     
         ]);
         return redirect('create_appointment')->with('status','Appointments Created');
@@ -326,24 +331,38 @@ class HospitalController extends Controller
 
     public function aupdate(Request $request, int $id){
         $request->validate([
-            'name' => 'required|max:25|string',           
-            'email' => 'required|email',           
-            'phone' => 'required|max:11',
-            'speciality' => 'required|max:25|string',
-            'clinic' => 'required|max:25|string',
+            'name' => 'required|max:25|string',
+            'age' => 'required|max:191|string',
+            'gender' => 'required|max:191|string',
+            'phone' => 'required|max:191|string',
+            'email' => 'required|email',
             'address' => 'required|max:191|string',
-            'gender' => 'required|max:25|string',
+            'city' => 'required|max:191|string',
+            'area' => 'required|max:191|string',
+            'zip' => 'required|max:191|string',
+            'data' => 'required|max:191|string',
+            'availability' => 'required|max:191|string',
+            'start' => 'required|max:191|string',
+            'end' => 'required|max:191|string',
+            'status' => 'required|max:191|string',
             
-    
         ]);
         Appointments::create([
-        'name'=> $request->name,      
-        'email'=> $request->email,
-        'phone'=> $request->phone,
-        'speciality'=> $request->speciality,
-        'clinic'=> $request->clinic,
-        'address'=> $request->address,
+        'name'=> $request->name,
+        'age'=> $request->age,
         'gender'=> $request->gender,
+        'phone'=> $request->phone,
+        'email'=> $request->email,
+        'address'=> $request->address,
+        'city'=> $request->city,
+        'area'=> $request->area,
+        'zip'=> $request->zip,
+        'data'=> $request->data,
+        'availability'=> $request->availability,
+        'start'=> $request->start,
+        'end'=> $request->end,
+        'status'=> $request->status,
+    
     
         ]);
         return redirect()->back()->with('status','Appointments Update');
@@ -377,28 +396,30 @@ class HospitalController extends Controller
     public function store_prescription(Request $request){
         $request->validate([
             'name' => 'required|max:25|string',
-            
-            'email' => 'required|email',
-            
-            'phone' => 'required|max:11',
-            'speciality' => 'required|max:25|string',
-            'clinic' => 'required|max:25|string',
+            'age' => 'required|max:191|string',
+            'date' => 'required|max:191|string',
+            'phone' => 'required|max:191|string',
+            'email' => 'required|max:191|string',
             'address' => 'required|max:191|string',
-            'gender' => 'required|max:25|string',
+            'medication' => 'required|max:191|string',
+            'additional_inf' => 'required|max:191|string',
+            'sign_of_doctor' => 'required|max:191|string',
+            'signed_date' => 'required|max:191|string',
+            
             
     
         ]);
         Prescriptions::create([
         'name'=> $request->name,
-        
-        'email'=> $request->email,
+        'age'=> $request->age,
+        'date'=> $request->date,
         'phone'=> $request->phone,
-        'speciality'=> $request->speciality,
-        'clinic'=> $request->clinic,
-        
-
+        'email'=> $request->email,
         'address'=> $request->address,
-        'gender'=> $request->gender,
+        'medication'=> $request->medication,
+        'additional_inf'=> $request->additional_inf,
+        'sign_of_doctor'=> $request->sign_of_doctor,
+        'signed_date'=> $request->signed_date,
     
         ]);
         return redirect('create_prescription')->with('status','Profile Created');
@@ -416,24 +437,31 @@ class HospitalController extends Controller
 
     public function prescription_update(Request $request, int $id){
         $request->validate([
-            'name' => 'required|max:25|string',           
-            'email' => 'required|email',           
-            'phone' => 'required|max:11',
-            'speciality' => 'required|max:25|string',
-            'clinic' => 'required|max:25|string',
+            'name' => 'required|max:25|string',
+            'age' => 'required|max:191|string',
+            'date' => 'required|max:191|string',
+            'phone' => 'required|max:191|string',
+            'email' => 'required|max:191|string',
             'address' => 'required|max:191|string',
-            'gender' => 'required|max:25|string',
+            'medication' => 'required|max:191|string',
+            'additional_inf' => 'required|max:191|string',
+            'sign_of_doctor' => 'required|max:191|string',
+            'signed_date' => 'required|max:191|string',
+            
             
     
         ]);
         Prescriptions::create([
-        'name'=> $request->name,      
-        'email'=> $request->email,
+        'name'=> $request->name,
+        'age'=> $request->age,
+        'date'=> $request->date,
         'phone'=> $request->phone,
-        'speciality'=> $request->speciality,
-        'clinic'=> $request->clinic,
+        'email'=> $request->email,
         'address'=> $request->address,
-        'gender'=> $request->gender,
+        'medication'=> $request->medication,
+        'additional_inf'=> $request->additional_inf,
+        'sign_of_doctor'=> $request->sign_of_doctor,
+        'signed_date'=> $request->signed_date,
     
         ]);
         return redirect()->back()->with('status','prescription Update');

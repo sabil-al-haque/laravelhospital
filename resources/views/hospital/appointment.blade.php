@@ -1,89 +1,81 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <title>{{ $appointmentData->patient_name }} Appointment Details</title>
+</head>
+<body>
 
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<div class="container mt-5">
+    <h2>{{ $appointmentData->patient_name }} Appointment Details</h2>
+    <table class="table mt-4">
+        <tbody>
+            <tr>
+                <th scope="row">Patient's Name</th>
+                <td>{{ $appointmentData->patient_name }}</td>
+            </tr>
+            <tr>
+                <th scope="row">Age</th>
+                <td>{{ $appointmentData->age }}</td>
+            </tr>
+            <tr>
+                <th scope="row">Gender</th>
+                <td>{{ $appointmentData->gender }}</td>
+            </tr>
+            <tr>
+                <th scope="row">Phone & Email</th>
+                <td>{{ $appointmentData->phone }} | {{ $appointmentData->email }}</td>
+            </tr>
+            <tr>
+                <th scope="row">Address</th>
+                <td>{{ $appointmentData->address }}</td>
+            </tr>
+            <tr>
+                <th scope="row">City</th>
+                <td>{{ $appointmentData->city }}</td>
+            </tr>
+            <tr>
+                <th scope="row">Area</th>
+                <td>{{ $appointmentData->area }}</td>
+            </tr>
+            <tr>
+                <th scope="row">Zip Code</th>
+                <td>{{ $appointmentData->code }}</td>
+            </tr>
+            <tr>
+                <th scope="row">Appointment Date</th>
+                <td>{{ $appointmentData->date }}</td>
+            </tr>
+            <tr>
+                <th scope="row">Start From</th>
+                <td>{{ $appointmentData->startfrom }}</td>
+            </tr>
+            <tr>
+                <th scope="row">Ends On</th>
+                <td>{{ $appointmentData->endson }}</td>
+            </tr>
+            <tr>
+                <th scope="row">Status</th>
+                <td>{{ $appointmentData->status }}</td>
+            </tr>
+        </tbody>
+    </table>
 
-    <title>Curd</title>
-  </head>
-  <body>
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="card">
-                     <div class="card-header">
-                            <a href="{{ url('/doctor') }}" class="btn btn-primary my-4">Doctor</a>
-                            <a href="{{ url('/create_doctor') }}" class="btn btn-primary my-4">Create Doctor</a>
-                            <a href="{{ url('/patient') }}" class="btn btn-primary my-4">Patient</a>
-                            <a href="{{ url('/create_patient') }}" class="btn btn-primary my-4">Create Patient</a>
-                            <a href="{{ url('/catagory') }}" class="btn btn-primary my-4">catagory</a>
-                            <a href="{{ url('/create_catagory') }}" class="btn btn-primary my-4">Create Catagory</a>
-                            <a href="{{ url('/appointment') }}" class="btn btn-primary my-4">Appointment</a>
-                            <a href="{{ url('/create_appointment') }}" class="btn btn-primary my-4">Create Appointment</a>
-                            <a href="{{ url('/prescription') }}" class="btn btn-primary my-4">Prescription</a>
-                            <a href="{{ url('/create_prescription') }}" class="btn btn-primary my-4">Create Prescription</a>
-                        <div class="card-body">
-                            <table class="table table-brodered table-striped">
-                                <thead>
-                                    <tr>
-                                        <th>ID</th>
-                                        <th>Name</th>
-                                        <th>Email Address</th>
-                                        <th>Phone Number</th>
-                                        <th>Speciality</th>
-                                        <th>Clinic Name</th>
-                                        <th>Address</th>
-                                        <th>Gender</th>
-                                        <th>Action</th>
-
-
-                                    </tr>
-                                </thead>
-                                <tbody>
-
-                                    @foreach ($doctors as $item)
-                                    <tr>
-                                        <td>{{ $item->id }}</td>
-                                        <td>{{ $item->name }}</td>
-                                        <td>{{ $item->email }}</td>
-                                        <td>{{ $item->phone }}</td>
-                                        <td>{{ $item->speciality }}</td>
-                                        <td>{{ $item->clinic }}</td>
-                                        <td>{{ $item->address }}</td>
-                                        <td>{{ $item->gender }}</td>
-
-                                        <td>
-                                            <a href="{{ url('doctor/'.$item->id.'/edit') }}" class="btn btn-success mx-2">Edit</a>
-                                            <a
-                                            href="{{ url('doctor/'.$item->id.'/delete') }}"
-                                            class="btn btn-danger mx-1"
-                                            onclick="return confirm('Are You Sure?')"
-                                            >
-                                            Delete
-                                        </a>
-                                        </td>
-                                    </tr>
-
-                                    @endforeach
-                                </tbody>
-
-
-                            </table>
-
-
-
-                        </div>
-                    </div>
-                 </div>
-            </div>
-        </div>
+    <div class="mt-3">
+        <a href="{{ route('appointment.edit', ['id' => $appointmentData->id]) }}" class="btn btn-primary">Edit</a>
+        <form action="{{ route('appointment.destroy', ['id' => $appointmentData->id]) }}" method="POST" class="d-inline">
+            @csrf
+            @method('DELETE')
+            <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this appointment?')">Delete</button>
+        </form>
     </div>
+</div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 
-  </body>
+</body>
 </html>
