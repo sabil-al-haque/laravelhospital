@@ -8,17 +8,17 @@
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
-    <title>Curd</title>
+    <title>Hospital Management</title>
   </head>
   <body>
     <div class="container">
-        
+
         <a href="{{ url('/home') }}" class="btn btn-primary my-4">Back</a>
         @if (session('status'))
         <div class="alert alert-success"> {{ session('status') }}</div>
         @endif
         <form method="post" action="{{route('catagory.store')}}">
-             @csrf 
+             @csrf
              @method('post')
             <div class="mb-3">
                 <label for="" >Category Name</label>
