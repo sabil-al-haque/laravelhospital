@@ -14,9 +14,9 @@ use App\Http\Controllers\HospitalController;
 |
 */
 
-Route::get('/home', function () {
-    return view('welcome');
-});
+
+Route::get('/', [HospitalController::class, 'home']);
+
 
 Route::get('/doctor', [HospitalController::class, 'd_index'])->name('doctor.d_index');
 Route::get('/create_doctor', [HospitalController::class, 'd_create'])->name('doctor.d_create');
@@ -33,10 +33,10 @@ Route::get('doctor/{id}/delete',[HospitalController::class, 'ddelete']);
  Route::get('patient/{id}/edit',[HospitalController::class, 'pedit']);
  Route::put('patient/{id}/edit',[HospitalController::class, 'pupdate']);
  Route::get('patient/{id}/delete',[HospitalController::class, 'pdelete']);
- 
 
 
- 
+
+
 
 
  Route::get('/catagory', [HospitalController::class, 'catagory'])->name('catagory.store');
@@ -65,6 +65,13 @@ Route::get('doctor/{id}/delete',[HospitalController::class, 'ddelete']);
  Route::get('prescription/{id}/edit',[HospitalController::class, 'prescription_edit']);
  Route::put('prescription/{id}/edit',[HospitalController::class, 'prescription_update']);
  Route::get('prescription/{id}/delete',[HospitalController::class, 'prescription_delete']);
+
+
+ Route::get('/login', [HospitalController::class, 'login']);
+ Route::get('/createaccount', [HospitalController::class, 'reg']);
+ Route::get('/profile', [HospitalController::class, 'profile']);
+
+
 
 
 

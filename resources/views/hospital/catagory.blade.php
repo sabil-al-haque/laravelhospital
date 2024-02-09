@@ -8,53 +8,48 @@
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
-    <title>Hospital Management</title>
+    <title>Health Management</title>
   </head>
   <body>
-  <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-      <div class="container">
-        <a class="navbar-brand" href="{{ url('/home') }}">Hospital Management</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav">
-            <li class="nav-item">
-              <a class="nav-link" href="{{ url('/doctor') }}">Doctor</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="{{ url('/create_doctor') }}">Create Doctor</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="{{ url('/patient') }}">Patient</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="{{ url('/create_patient') }}">Create Patient</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="{{ url('/catagory') }}">Category</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="{{ url('/create_catagory') }}">Create Category</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="{{ url('/appointment') }}">Appointment</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="{{ url('/create_appointment') }}">Create Appointment</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="{{ url('/prescription') }}">Prescription</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="{{ url('/create_prescription') }}">Create Prescription</a>
-            </li>
-          </ul>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container">
+          <a class="navbar-brand" href="{{ url('/') }}">Health Management</a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+              <ul class="navbar-nav">
+                  <li class="nav-item">
+                    <a class="nav-link" href="{{ url('/doctor') }}">Doctor</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="{{ url('/patient') }}">Patient</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="{{ url('/catagory') }}">Category</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="{{ url('/appointment') }}">Appointment</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="{{ url('/prescription') }}">Prescription</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="{{ url('/profile') }}">Profile</a>
+                  </li>
+                </ul>
+                <form class="d-flex ms-auto">
+                  <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                  <button class="btn btn-light" type="submit">Search</button>
+              </form>
+          </div>
         </div>
-      </div>
-    </nav>
+      </nav>
     <div class="container mt-5">
         <h2>Category</h2>
+        <div style="position: absolute; top: 40px; right: 20px; margin: 50px;">
+            <a href="{{ url('/create_catagory') }}" class="btn btn-info">Create Category</a>
+        </div>
         <div class="row">
             <div class="col-md-12">
                 <div class="card">
