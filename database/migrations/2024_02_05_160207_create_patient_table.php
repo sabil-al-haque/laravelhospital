@@ -16,11 +16,9 @@ return new class extends Migration
             $table->string('name');
             $table->string('email')->nullable;
             $table->string('phone')->nullable;
-            $table->string('symtom')->nullable;
-            $table->string('disease')->nullable;
             $table->string('gender')->nullable;
             $table->string('address')->nullable;
-            
+            $table->string('Password')->nullable;
             $table->timestamps();
         });
     }

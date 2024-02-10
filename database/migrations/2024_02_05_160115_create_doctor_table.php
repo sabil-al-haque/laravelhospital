@@ -16,12 +16,12 @@ return new class extends Migration
             $table->string('name')->nullable;
             $table->string('email')->nullable;
             $table->string('phone')->nullable;
-            $table->string('speciality')->nullable;
-            $table->string('clinic')->nullable;
-            
-            $table->string('address')->nullable;
             $table->string('gender')->nullable;
-            
+            $table->string('address')->nullable;
+            $table->string('degree')->nullable;
+            $table->string('clinic')->nullable;
+            $table->string('Password')->nullable;
+            $table->foreignId('experties_id')->nullable;
             $table->timestamps();
         });
     }

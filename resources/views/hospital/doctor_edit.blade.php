@@ -9,12 +9,48 @@
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
-    <title>Hospital Management</title>
+    <title>Health Management</title>
 </head>
 
 <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container">
+          <a class="navbar-brand" href="{{ url('/') }}">Health Management</a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+              <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url('/doctor') }}">Doctor</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="{{ url('/patient') }}">Patient</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="{{ url('/availability') }}">Availability</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="{{ url('/disease') }}">Disease</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="{{ url('/experties') }}">Experties</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="{{ url('/appointment') }}">Appointment</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="{{ url('/prescription') }}">Prescription</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="{{ url('/profile') }}">Profile</a>
+                  </li>
+                </ul>
+          </div>
+        </div>
+      </nav>
     <div class="container">
-        <a href="{{ url('/home') }}" class="btn btn-primary my-4">Back</a>
+        <a href="{{ url('/doctor') }}" class="btn btn-primary my-4">Back</a>
 
         @if (session('status'))
             <div class="alert alert-success">{{ session('status') }}</div>
@@ -41,17 +77,14 @@
                 <input type="text" name="phone" value="{{ $doctors->phone }}" class="form-control" placeholder="Enter Your Phone Number">
                 @error('phone')<span class="text-danger">{{ $message }}</span>@enderror
             </div>
-
             <div class="mb-3">
-                <label for="speciality">Speciality</label>
-                <input type="text" name="speciality" value="{{ $doctors->speciality }}" class="form-control" placeholder="Enter Your Speciality">
-                @error('speciality')<span class="text-danger">{{ $message }}</span>@enderror
-            </div>
-
-            <div class="mb-3">
-                <label for="clinic">Clinic Name</label>
-                <input type="text" name="clinic" value="{{ $doctors->clinic }}" class="form-control" placeholder="Enter Your Clinic Name">
-                @error('clinic')<span class="text-danger">{{ $message }}</span>@enderror
+                <label for="gender">Gender</label>
+                <select name="gender" value="{{ $doctors->gender }}" class="form-select">
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                    <option value="other">Other</option>
+                </select>
+                @error('gender')<span class="text-danger">{{ $message }}</span>@enderror
             </div>
 
             <div class="mb-3">
@@ -59,13 +92,26 @@
                 <input type="text" name="address" value="{{ $doctors->address }}" class="form-control" placeholder="Enter Your Full Address">
                 @error('address')<span class="text-danger">{{ $message }}</span>@enderror
             </div>
-
             <div class="mb-3">
-                <label for="gender">Gender</label>
-                <input type="text" name="gender" value="{{ $doctors->gender }}" class="form-control" placeholder="Enter Your Gender">
-                @error('gender')<span class="text-danger">{{ $message }}</span>@enderror
+                <label for="address">Degree</label>
+                <input type="text" name="degree" value="{{ $doctors->degree }}" class="form-control" placeholder="Enter Your Degree">
+                @error('address')<span class="text-danger">{{ $message }}</span>@enderror
             </div>
-
+            <div class="mb-3">
+                <label for="address">Current Clinic</label>
+                <input type="text" name="clinic" value="{{ $doctors->clinic }}" class="form-control" placeholder="Enter Your Current Clinic Name">
+                @error('address')<span class="text-danger">{{ $message }}</span>@enderror
+            </div>
+            <div class="mb-3">
+                <label for="address">Password</label>
+                <input type="password" name="Password" value="{{ $doctors->Password }}" class="form-control" placeholder="Enter Your Password">
+                @error('address')<span class="text-danger">{{ $message }}</span>@enderror
+            </div>
+            <div class="mb-3">
+                <label for="address">Experties</label>
+                <input type="number" name="experties_id" value="{{ $doctors->experties_id }}" class="form-control" placeholder="Enter Experties">
+                @error('address')<span class="text-danger">{{ $message }}</span>@enderror
+            </div>
             <input type="submit" class="btn btn-primary my-4" value="Submit">
         </form>
     </div>

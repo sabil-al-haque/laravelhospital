@@ -13,10 +13,6 @@ class Catagories extends Model
         'sub_catagory'
     ];
 
-    public function doctor()
-    {
-        return $this->hasMany(Doctor::class, 'speciality', 'sub_catagory');
-    }
 
 
 }
