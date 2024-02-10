@@ -19,14 +19,20 @@
           </button>
           <div class="collapse navbar-collapse" id="navbarNav">
               <ul class="navbar-nav">
-                  <li class="nav-item">
+                <li class="nav-item">
                     <a class="nav-link" href="{{ url('/doctor') }}">Doctor</a>
                   </li>
                   <li class="nav-item">
                     <a class="nav-link" href="{{ url('/patient') }}">Patient</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="{{ url('/catagory') }}">Category</a>
+                    <a class="nav-link" href="{{ url('/availability') }}">Availability</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="{{ url('/disease') }}">Disease</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="{{ url('/experties') }}">Experties</a>
                   </li>
                   <li class="nav-item">
                     <a class="nav-link" href="{{ url('/appointment') }}">Appointment</a>
@@ -38,71 +44,53 @@
                     <a class="nav-link" href="{{ url('/profile') }}">Profile</a>
                   </li>
                 </ul>
-                <form class="d-flex ms-auto">
-                  <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                  <button class="btn btn-light" type="submit">Search</button>
-              </form>
           </div>
         </div>
       </nav>
 
 <div class="container mt-5">
-<a href="{{ url('/prescription') }}" class="btn btn-primary my-4">Back</a>
+        <a href="{{ url('/prescription') }}" class="btn btn-primary my-4">Back</a>
         @if (session('status'))
         <div class="alert alert-success"> {{ session('status') }}</div>
         @endif
-<form method="post" action="{{ url('prescription/'.$patientData->id.'/edit') }}">
+        <form method="post" action="{{ url('prescription/'.$patientData->id.'/edit') }}">
             {{$patientData}}
             @csrf
             @method('PUT')
-        <div class="form-row">
-            <div class="form-group col-md-6">
-                <label for="patientName">Patient's Name</label>
-                <input type="text" name="name" value= "{{$patientData->name}}" class="form-control" id="patientName" placeholder="Enter patient's name" required>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="appointments_id">Appointments Id</label>
+                    <input type="number" name="appointments_id" value= "{{$patientData->appointments_id}}" class="form-control" id="appointments_id" placeholder="Enter Appointments Id" required>
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="patients_id">Patient Id</label>
+                    <input type="number" name="patients_id" value= "{{$patientData->patients_id}}" class="form-control" id="patients_id" placeholder="Enter Patient Id" required>
+                </div>
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="doctors_id">Doctor Id</label>
+                    <input type="number" name="doctors_id" value= "{{$patientData->doctors_id}}" class="form-control" id="doctors_id" placeholder="Enter Doctor Id" required>
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="date">Date</label>
+                    <input type="date" name="date" value= "{{$patientData->date}}" class="form-control" id="date"  required>
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="medication">Medication</label>
+                    <textarea class="form-control" name="medication" value= "{{$patientData->medication}}" id="medication" rows="3" placeholder="Enter Medication Details" > </textarea>
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="additional_inf">Additional Information</label>
+                    <textarea class="form-control" name="additional_inf" value= "{{$patientData->additional_inf}}" id="additional_inf" rows="3" placeholder="Enter Additional Information" > </textarea>
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="sign_of_doctor">Doctor Sign</label>
+                    <input type="text" name="sign_of_doctor" value= "{{$patientData->sign_of_doctor}}" class="form-control" id="sign_of_doctor" placeholder="Doctor Sign" required>
+                </div>
+                <div class="form-group col-md-6">
+                <label for="signed_date">Signed Date</label>
+                <input type="date"  name="signed_date" value= "{{$patientData->signed_date}}" class="form-control" id="signed_date"  placeholder="Signed Date"required>
             </div>
-            <div class="form-group col-md-6">
-                <label for="age">Age</label>
-                <input type="number" name="age" value= "{{$patientData->age}}" class="form-control" id="age" placeholder="Enter age" required>
-            </div>
-        </div>
-        <div class="form-row">
-            <div class="form-group col-md-6">
-                <label for="date">Date</label>
-                <input type="date" name="date" value= "{{$patientData->date}}" class="form-control" id="date" required>
-            </div>
-            <div class="form-group col-md-6">
-                <label for="phone">Phone</label>
-                <input type="tel" name="phone" value= "{{$patientData->phone}}" class="form-control" id="phone" placeholder="Enter phone number" required>
-            </div>
-        </div>
-        <div class="form-row">
-            <div class="form-group col-md-6">
-                <label for="email">Email</label>
-                <input type="email" name="email" value= "{{$patientData->email}}" class="form-control" id="email" placeholder="Enter email" required>
-            </div>
-            <div class="form-group col-md-6">
-                <label for="address">Address</label>
-                <input type="text" name="address" value= "{{$patientData->address}}" class="form-control" id="address" placeholder="Enter address" required>
-            </div>
-        </div>
-        <div class="form-group">
-            <label for="medicationDetails">Medication Details</label>
-            <textarea class="form-control" value= "{{$patientData->medication}}" name="medication"  id="medicationDetails" rows="3" placeholder="Enter medication details"></textarea>
-        </div>
-        <div class="form-group">
-            <label for="additionalInformation">Additional Information</label>
-            <textarea class="form-control" name="additional_inf" value= "{{$patientData->additional_inf}}" id="additionalInformation" rows="3" placeholder="Enter additional information"></textarea>
-        </div>
-        <div class="form-row">
-            <div class="form-group col-md-6">
-                <label for="doctorsSignature">Doctor's Signature</label>
-                <input type="text" name="sign_of_doctor" value= "{{$patientData->sign_of_doctor}}" class="form-control" id="doctorsSignature" placeholder="Enter doctor's signature" required>
-            </div>
-            <div class="form-group col-md-6">
-                <label for="signedDate">Signed Date</label>
-                <input type="date" name="signed_date" value= "{{$patientData->signed_date}}" class="form-control" id="signedDate" required>
-            </div>
-        </div>
         <button type="submit" class="btn btn-primary my-4">Submit</button>
     </form>
 </div>

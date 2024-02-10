@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Health Management</title>
-    <!-- Bootstrap CSS Link -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <!-- Include Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
@@ -44,42 +44,31 @@
           </div>
         </div>
       </nav>
-<div class="container mt-5">
-    <h2 class="mb-4">User Profile</h2>
+<div class="container mt-4">
+        <a href="{{ url('/experties') }}" class="btn btn-primary my-4">Back</a>
 
-    <div class="card">
-        <div class="card-body">
-            <h5 class="card-title">Welcome, {{ $user->name }}!</h5>
+        @if (session('status'))
+            <div class="alert alert-success">{{ session('status') }}</div>
+        @endif
 
-            <ul class="list-group list-group-flush">
-                <li class="list-group-item"><strong>Name:</strong> {{ $user->name }}</li>
-                <li class="list-group-item"><strong>Age:</strong> {{ $user->age }}</li>
-                <li class="list-group-item"><strong>Gender:</strong> {{ $user->gender }}</li>
-                <li class="list-group-item"><strong>Phone:</strong> {{ $user->phone }}</li>
-                <li class="list-group-item"><strong>Email:</strong> {{ $user->email }}</li>
-                <li class="list-group-item"><strong>Address:</strong> {{ $user->address }}</li>
-                <li class="list-group-item"><strong>City:</strong> {{ $user->city }}</li>
-            </ul>
+        <form action="{{ url('experties/'.$experties->id.'/edit') }}" method="POST">
+            @csrf
+            @method('PUT')
+    <h1 class="mb-4">Edit Doctor Experties</h1>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="title">Experties Name</label>
+                <input type="text" class="form-control" id="title" name="title" value="{{ $experties->title }}" required>
+            </div>
+            <button type="submit" class="btn btn-primary my-4">Add Experties</button>
+    </form>
 
-             <!-- Edit Button -->
-             <a href="/edit-profile" class="btn btn-warning mt-3">Edit Profile</a>
-
-             <!-- Delete Button -->
-             <form action="/delete-profile" method="post" class="d-inline">
-                 @csrf
-                 @method('DELETE')
-                 <button type="submit" class="btn btn-danger mt-3 ml-2" onclick="return confirm('Are you sure you want to delete your profile?')">Delete Profile</button>
-             </form>
-
-            <a href="/logout" class="btn btn-danger mt-3">Logout</a>
-        </div>
-    </div>
 </div>
 
-<!-- Bootstrap JS and Popper.js Scripts -->
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<!-- Include Bootstrap JS and Popper.js -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 
 </body>
 </html>

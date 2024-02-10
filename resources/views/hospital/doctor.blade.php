@@ -19,14 +19,20 @@
           </button>
           <div class="collapse navbar-collapse" id="navbarNav">
               <ul class="navbar-nav">
-                  <li class="nav-item">
+                <li class="nav-item">
                     <a class="nav-link" href="{{ url('/doctor') }}">Doctor</a>
                   </li>
                   <li class="nav-item">
                     <a class="nav-link" href="{{ url('/patient') }}">Patient</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="{{ url('/catagory') }}">Category</a>
+                    <a class="nav-link" href="{{ url('/availability') }}">Availability</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="{{ url('/disease') }}">Disease</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="{{ url('/experties') }}">Experties</a>
                   </li>
                   <li class="nav-item">
                     <a class="nav-link" href="{{ url('/appointment') }}">Appointment</a>
@@ -38,10 +44,6 @@
                     <a class="nav-link" href="{{ url('/profile') }}">Profile</a>
                   </li>
                 </ul>
-                <form class="d-flex ms-auto">
-                  <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                  <button class="btn btn-light" type="submit">Search</button>
-              </form>
           </div>
         </div>
       </nav>
@@ -62,27 +64,30 @@
                                         <th>Name</th>
                                         <th>Email Address</th>
                                         <th>Phone Number</th>
-                                        <th>Speciality</th>
-                                        <th>Clinic Name</th>
-                                        <th>Address</th>
                                         <th>Gender</th>
+                                        <th>Address</th>
+                                        <th>Degree</th>
+                                        <th>Clinic</th>
+                                        <th>Experties</th>
+
                                         <th>Action</th>
 
-
-                                    </tr>
+                                   </tr>
                                 </thead>
                                 <tbody>
 
                                     @foreach ($doctors as $item)
-                                    <tr>
+                                <tr>
                                         <td>{{ $item->id }}</td>
                                         <td>{{ $item->name }}</td>
                                         <td>{{ $item->email }}</td>
                                         <td>{{ $item->phone }}</td>
-                                        <td>{{ $item->speciality }}</td>
-                                        <td>{{ $item->clinic }}</td>
-                                        <td>{{ $item->address }}</td>
                                         <td>{{ $item->gender }}</td>
+                                        <td>{{ $item->address }}</td>
+                                        <td>{{ $item->degree }}</td>
+
+                                        <td>{{ $item->clinic }}</td>
+                                        <td>{{ $item->expertises()->title }}</td>
 
                                         <td>
                                             <a href="{{ url('doctor/'.$item->id.'/edit') }}" class="btn btn-success mx-2">Edit</a>
@@ -92,9 +97,9 @@
                                             onclick="return confirm('Are You Sure?')"
                                             >
                                             Delete
-                                        </a>
+                                            </a>
                                         </td>
-                                    </tr>
+                                </tr>
 
                                     @endforeach
                                 </tbody>

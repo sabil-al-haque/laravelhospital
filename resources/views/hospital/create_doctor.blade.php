@@ -21,14 +21,20 @@
           </button>
           <div class="collapse navbar-collapse" id="navbarNav">
               <ul class="navbar-nav">
-                  <li class="nav-item">
+                <li class="nav-item">
                     <a class="nav-link" href="{{ url('/doctor') }}">Doctor</a>
                   </li>
                   <li class="nav-item">
                     <a class="nav-link" href="{{ url('/patient') }}">Patient</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="{{ url('/catagory') }}">Category</a>
+                    <a class="nav-link" href="{{ url('/availability') }}">Availability</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="{{ url('/disease') }}">Disease</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="{{ url('/experties') }}">Experties</a>
                   </li>
                   <li class="nav-item">
                     <a class="nav-link" href="{{ url('/appointment') }}">Appointment</a>
@@ -40,10 +46,6 @@
                     <a class="nav-link" href="{{ url('/profile') }}">Profile</a>
                   </li>
                 </ul>
-                <form class="d-flex ms-auto">
-                  <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                  <button class="btn btn-light" type="submit">Search</button>
-              </form>
           </div>
         </div>
       </nav>
@@ -68,26 +70,8 @@
 
             <div class="mb-3">
                 <label for="phone">Phone Number</label>
-                <input type="text" name="phone" class="form-control" placeholder="Enter Your Phone Number">
+                <input type="text" name="phone" class="form-control" placeholder="Enter Your Phone Number" data-inputmask="'mask': '+8809999999999'">
                 @error('phone')<span class="text-danger">{{ $message }}</span>@enderror
-            </div>
-
-            <div class="mb-3">
-                <label for="speciality">Speciality</label>
-                <input type="text" name="speciality" class="form-control" placeholder="Enter Your Speciality">
-                @error('speciality')<span class="text-danger">{{ $message }}</span>@enderror
-            </div>
-
-            <div class="mb-3">
-                <label for="clinic">Clinic Name</label>
-                <input type="text" name="clinic" class="form-control" placeholder="Enter Your Clinic Name">
-                @error('clinic')<span class="text-danger">{{ $message }}</span>@enderror
-            </div>
-
-            <div class="mb-3">
-                <label for="address">Address</label>
-                <input type="text" name="address" class="form-control" placeholder="Enter Your Full Address">
-                @error('address')<span class="text-danger">{{ $message }}</span>@enderror
             </div>
 
             <div class="mb-3">
@@ -98,6 +82,32 @@
                     <option value="other">Other</option>
                 </select>
                 @error('gender')<span class="text-danger">{{ $message }}</span>@enderror
+            </div>
+
+            <div class="mb-3">
+                <label for="address">Address</label>
+                <input type="text" name="address" class="form-control" placeholder="Enter Your Full Address">
+                @error('address')<span class="text-danger">{{ $message }}</span>@enderror
+            </div>
+            <div class="mb-3">
+                <label for="address">Degree</label>
+                <input type="text" name="degree" class="form-control" placeholder="Enter Your Degree">
+                @error('address')<span class="text-danger">{{ $message }}</span>@enderror
+            </div>
+            <div class="mb-3">
+                <label for="address">Current Clinic</label>
+                <input type="text" name="clinic" class="form-control" placeholder="Enter Your Current Clinic Name">
+                @error('address')<span class="text-danger">{{ $message }}</span>@enderror
+            </div>
+            <div class="mb-3">
+                <label for="address">Password</label>
+                <input type="password" name="Password" class="form-control" placeholder="Enter Your Password">
+                @error('address')<span class="text-danger">{{ $message }}</span>@enderror
+            </div>
+            <div class="mb-3">
+                <label for="address">Experties</label>
+                <input type="number" name="experties_id" class="form-control" placeholder="Enter Experties">
+                @error('address')<span class="text-danger">{{ $message }}</span>@enderror
             </div>
 
             <input type="submit" class="btn btn-primary my-4" value="Submit">

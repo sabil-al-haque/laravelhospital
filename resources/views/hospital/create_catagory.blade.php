@@ -19,14 +19,20 @@
           </button>
           <div class="collapse navbar-collapse" id="navbarNav">
               <ul class="navbar-nav">
-                  <li class="nav-item">
+                <li class="nav-item">
                     <a class="nav-link" href="{{ url('/doctor') }}">Doctor</a>
                   </li>
                   <li class="nav-item">
                     <a class="nav-link" href="{{ url('/patient') }}">Patient</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="{{ url('/catagory') }}">Category</a>
+                    <a class="nav-link" href="{{ url('/availability') }}">Availability</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="{{ url('/disease') }}">Disease</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="{{ url('/experties') }}">Experties</a>
                   </li>
                   <li class="nav-item">
                     <a class="nav-link" href="{{ url('/appointment') }}">Appointment</a>
@@ -38,10 +44,6 @@
                     <a class="nav-link" href="{{ url('/profile') }}">Profile</a>
                   </li>
                 </ul>
-                <form class="d-flex ms-auto">
-                  <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                  <button class="btn btn-light" type="submit">Search</button>
-              </form>
           </div>
         </div>
       </nav>

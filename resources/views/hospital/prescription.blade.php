@@ -19,14 +19,20 @@
           </button>
           <div class="collapse navbar-collapse" id="navbarNav">
               <ul class="navbar-nav">
-                  <li class="nav-item">
+                <li class="nav-item">
                     <a class="nav-link" href="{{ url('/doctor') }}">Doctor</a>
                   </li>
                   <li class="nav-item">
                     <a class="nav-link" href="{{ url('/patient') }}">Patient</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="{{ url('/catagory') }}">Category</a>
+                    <a class="nav-link" href="{{ url('/availability') }}">Availability</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="{{ url('/disease') }}">Disease</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="{{ url('/experties') }}">Experties</a>
                   </li>
                   <li class="nav-item">
                     <a class="nav-link" href="{{ url('/appointment') }}">Appointment</a>
@@ -38,10 +44,6 @@
                     <a class="nav-link" href="{{ url('/profile') }}">Profile</a>
                   </li>
                 </ul>
-                <form class="d-flex ms-auto">
-                  <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                  <button class="btn btn-light" type="submit">Search</button>
-              </form>
           </div>
         </div>
       </nav>
@@ -54,12 +56,12 @@
         <table class="table table-bordered table-striped">
             <thead>
                 <tr>
+
                     <th>ID</th>
-                    <th>Patient's Name</th>
-                    <th>Age</th>
+                    <th>Appointments Id</th>
+                    <th>Patients Id</th>
+                    <th>Doctors Id</th>
                     <th>Date</th>
-                    <th>Phone & Email</th>
-                    <th>Address</th>
                     <th>Medication Details</th>
                     <th>Additional Information</th>
                     <th>Doctor's Signature</th>
@@ -71,11 +73,10 @@
                 @foreach ($patientData as $item)
                     <tr>
                         <td>{{ $item->id }}</td>
-                        <td>{{ $item->name }}</td>
-                        <td>{{ $item->age }}</td>
+                        <td>{{ $item->appointments_id }}</td>
+                        <td>{{ $item->patients_id }}</td>
+                        <td>{{ $item->doctors_id }}</td>
                         <td>{{ $item->date }}</td>
-                        <td>{{ $item->phone }} | {{ $item->email }}</td>
-                        <td>{{ $item->address }}</td>
                         <td>{{ $item->medication }}</td>
                         <td>{{ $item->additional_inf }}</td>
                         <td>{{ $item->sign_of_doctor }}</td>

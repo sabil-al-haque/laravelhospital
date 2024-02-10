@@ -9,22 +9,22 @@ class Doctor extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'name',
-        'email',
-        'phone',
-        'speciality',
-        'clinic',
-        'address',
-        'gender'
+            'name',
+            'email',
+            'phone',
+            'gender',
+            'address',
+            'degree',
+            'clinic',
+            'Password',
+            'experties_id'
     ];
 
-    public function patient()
+
+    public function expertises()
     {
-        return $this->hasMany(Patients::class, 'speciality', 'symtom');
+        return Expertises::find($this->experties_id);
     }
 
-    public function Catagory()
-    {
-        return $this->belongsTo(Catagories::class, 'speciality', 'sub_catagory');
-    }
+
 }

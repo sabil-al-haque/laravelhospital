@@ -72,7 +72,28 @@ Route::get('doctor/{id}/delete',[HospitalController::class, 'ddelete']);
  Route::get('/profile', [HospitalController::class, 'profile']);
 
 
+ Route::get('/availability', [HospitalController::class, 'availability_index']);
+ Route::get('/create_availability', [HospitalController::class, 'availability_create']);
+ Route::post('/availability', [HospitalController::class, 'store_availability']);
+ Route::get('availability/{id}/edit',[HospitalController::class, 'availability_edit']);
+ Route::put('availability/{id}/edit',[HospitalController::class, 'availability_update']);
+ Route::get('availability/{id}/delete',[HospitalController::class, 'availability_delete']);
 
+
+ Route::get('/disease', [HospitalController::class, 'disease_index']);
+ Route::get('/create_disease', [HospitalController::class, 'disease_create']);
+ Route::post('/disease', [HospitalController::class, 'store_disease']);
+ Route::get('disease/{id}/edit',[HospitalController::class, 'disease_edit']);
+ Route::put('disease/{id}/edit',[HospitalController::class, 'disease_update']);
+ Route::get('disease/{id}/delete',[HospitalController::class, 'disease_delete']);
+
+
+ Route::get('/experties', [HospitalController::class, 'experties_index']);
+ Route::get('/create_experties', [HospitalController::class, 'experties_create']);
+ Route::post('/experties', [HospitalController::class, 'store_experties']);
+ Route::get('experties/{id}/edit',[HospitalController::class, 'experties_edit']);
+ Route::put('experties/{id}/edit',[HospitalController::class, 'experties_update']);
+ Route::get('experties/{id}/delete',[HospitalController::class, 'experties_delete']);
 
 
  Route::get('admin',[HospitalController::class, 'admin_index']);

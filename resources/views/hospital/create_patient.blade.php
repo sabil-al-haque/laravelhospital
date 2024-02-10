@@ -21,14 +21,20 @@
           </button>
           <div class="collapse navbar-collapse" id="navbarNav">
               <ul class="navbar-nav">
-                  <li class="nav-item">
+                <li class="nav-item">
                     <a class="nav-link" href="{{ url('/doctor') }}">Doctor</a>
                   </li>
                   <li class="nav-item">
                     <a class="nav-link" href="{{ url('/patient') }}">Patient</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="{{ url('/catagory') }}">Category</a>
+                    <a class="nav-link" href="{{ url('/availability') }}">Availability</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="{{ url('/disease') }}">Disease</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="{{ url('/experties') }}">Experties</a>
                   </li>
                   <li class="nav-item">
                     <a class="nav-link" href="{{ url('/appointment') }}">Appointment</a>
@@ -40,10 +46,6 @@
                     <a class="nav-link" href="{{ url('/profile') }}">Profile</a>
                   </li>
                 </ul>
-                <form class="d-flex ms-auto">
-                  <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                  <button class="btn btn-light" type="submit">Search</button>
-              </form>
           </div>
         </div>
       </nav>
@@ -73,23 +75,11 @@
             </div>
 
             <div class="mb-3">
-                <label for="symptom">Symptom</label>
-                <input type="text" name="symtom" class="form-control" placeholder="Enter Your Symptom">
-                @error('symptom')<span class="text-danger">{{ $message }}</span>@enderror
-            </div>
-
-            <div class="mb-3">
-                <label for="disease">Disease</label>
-                <input type="text" name="disease" class="form-control" placeholder="Enter Your Disease">
-                @error('disease')<span class="text-danger">{{ $message }}</span>@enderror
-            </div>
-
-            <div class="mb-3">
                 <label for="gender">Gender</label>
                 <select name="gender" class="form-select">
-                    <option value="male">Male</option>
-                    <option value="female">Female</option>
-                    <option value="other">Other</option>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                    <option value="Other">Other</option>
                 </select>
                 @error('gender')<span class="text-danger">{{ $message }}</span>@enderror
             </div>
@@ -97,6 +87,11 @@
             <div class="mb-3">
                 <label for="address">Address</label>
                 <input type="text" name="address" class="form-control" placeholder="Enter Your Full Address">
+                @error('address')<span class="text-danger">{{ $message }}</span>@enderror
+            </div>
+            <div class="mb-3">
+                <label for="address">Password</label>
+                <input type="password" name="Password" class="form-control" placeholder="Enter Your Password">
                 @error('address')<span class="text-danger">{{ $message }}</span>@enderror
             </div>
 

@@ -65,6 +65,28 @@
             <input type="text" class="form-control" id="city" name="city" required>
         </div>
 
+        <!-- Area -->
+        <div class="form-group">
+            <label for="city">Area:</label>
+            <input type="text" class="form-control" id="area" name="area" required>
+        </div>
+
+        <!-- Zip -->
+        <div class="form-group">
+            <label for="city">Zip Code:</label>
+            <input type="text" class="form-control" id="zip" name="zip" required>
+        </div>
+
+        <!-- Uesr Typ -->
+        <div class="form-group">
+            <label for="gender">Uesr Type:</label>
+            <select class="form-control" id="gender" name="gender" required>
+                <option value="male">Doctor</option>
+                <option value="female">Patient</option>
+                <option value="other">Admin</option>
+            </select>
+        </div>
+
         <!-- Password -->
         <div class="form-group">
             <label for="password">Password:</label>

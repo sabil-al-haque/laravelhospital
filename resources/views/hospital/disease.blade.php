@@ -1,16 +1,13 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Health Management</title>
-  </head>
-  <body>
+    <!-- Include Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
         <div class="container">
           <a class="navbar-brand" href="{{ url('/') }}">Health Management</a>
@@ -47,10 +44,10 @@
           </div>
         </div>
       </nav>
-    <div class="container mt-5">
-        <h2>Patient Details</h2>
+      <div class="container mt-5">
+        <h2> Patient Disease</h2>
         <div style="position: absolute; top: 40px; right: 20px; margin: 50px;">
-            <a href="{{ url('/create_patient') }}" class="btn btn-info">Create Patient</a>
+            <a href="{{ url('/create_disease') }}" class="btn btn-info">Create Disease</a>
         </div>
         <div class="row">
             <div class="col-md-12">
@@ -61,11 +58,7 @@
                                 <thead>
                                     <tr>
                                         <th>ID</th>
-                                        <th>Name</th>
-                                        <th>Email Address</th>
-                                        <th>Phone Number</th>
-                                        <th>Gender</th>
-                                        <th>Address</th>
+                                        <th>Disease Name</th>
                                         <th>Action</th>
 
 
@@ -73,19 +66,14 @@
                                 </thead>
                                 <tbody>
 
-                                    @foreach ($patients as $item)
+                                    @foreach ($disease as $item)
                                     <tr>
                                         <td>{{ $item->id }}</td>
-                                        <td>{{ $item->name }}</td>
-                                        <td>{{ $item->email }}</td>
-                                        <td>{{ $item->phone }}</td>
-                                        <td>{{ $item->gender }}</td>
-                                        <td>{{ $item->address }}</td>
-
+                                        <td>{{ $item->disease_name }}</td>
                                         <td>
-                                            <a href="{{ url('patient/'.$item->id.'/edit') }}" class="btn btn-success mx-2">Edit</a>
+                                            <a href="{{ url('disease/'.$item->id.'/edit') }}" class="btn btn-success mx-2">Edit</a>
                                             <a
-                                            href="{{ url('patient/'.$item->id.'/delete') }}"
+                                            href="{{ url('disease/'.$item->id.'/delete') }}"
                                             class="btn btn-danger mx-1"
                                             onclick="return confirm('Are You Sure?')"
                                             >
@@ -109,7 +97,10 @@
         </div>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+<!-- Include Bootstrap JS and Popper.js -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 
-  </body>
+</body>
 </html>

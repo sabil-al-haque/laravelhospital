@@ -13,20 +13,10 @@ return new class extends Migration
     {
         Schema::create('appointments', function (Blueprint $table) {
             $table->id();
-            $table->string('name')->nullable;
-            $table->string('age')->nullable;
-            $table->string('gender')->nullable;
-            $table->string('phone')->nullable;
-            $table->string('email')->nullable;
-            $table->string('address')->nullable;
-            $table->string('city')->nullable;
-            $table->string('area')->nullable;
-            $table->string('zip')->nullable;
-            $table->string('date')->nullable;
-            $table->string('availability')->nullable;
-            $table->string('start')->nullable;
-            $table->string('end')->nullable;
-            $table->string('status')->nullable;
+            $table->foreignId('availabilities_id')->nullable;
+            $table->foreignId('doctor_id')->nullable;
+            $table->foreignId('patient_id')->nullable;
+            $table->foreignId('diease_id')->nullable;
             $table->timestamps();
         });
     }
