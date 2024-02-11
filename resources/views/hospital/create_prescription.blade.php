@@ -58,9 +58,10 @@
              @method('post')
              <div class="form-row">
                 <div class="form-group col-md-6">
-                    <label for="appointments_id">Appointments Id</label>
-                    <input type="number" name="appointments_id"  class="form-control" id="appointments_id" placeholder="Enter Appointments Id" required>
+                    <label for="appointments_id">Appointments ID</label>
+                    <input type="number" name="appointments_id"  class="form-control" id="appointments_id" placeholder="Enter Appointments id" required>
                 </div>
+
                 <div class="form-group col-md-6">
                     <label for="patients_id">Patient Id</label>
                     <input type="number" name="patients_id"  class="form-control" id="patients_id" placeholder="Enter Patient Id" required>

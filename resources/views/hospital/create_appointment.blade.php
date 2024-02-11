@@ -57,6 +57,10 @@
              @csrf
              <div class="form-row">
                 <div class="form-group col-md-6">
+                    <label for="appointment_name">appointment Name</label>
+                    <input type="text" name="appointment_name"  class="form-control" id="appointment_name" placeholder="Enter appointment name" required>
+                </div>
+                <div class="form-group col-md-6">
                     <label for="patientName">Availabilities Id</label>
                     <input type="number" name="availabilities_id"  class="form-control" id="patientName" placeholder="Enter patient name" required>
                 </div>

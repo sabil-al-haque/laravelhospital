@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('appointments', function (Blueprint $table) {
             $table->id();
+            $table->string('appointment_name')->nullable;
             $table->foreignId('availabilities_id')->nullable;
             $table->foreignId('doctor_id')->nullable;
             $table->foreignId('patient_id')->nullable;

@@ -220,6 +220,7 @@ class HospitalController extends Controller
 
     public function store_appointment(Request $request){
         $request->validate([
+            'appointment_name'=> 'required',
             'availabilities_id'=> 'required',
             'doctor_id'=> 'required',
             'patient_id'=> 'required',
@@ -227,6 +228,7 @@ class HospitalController extends Controller
 
         ]);
         Appointments::create([
+            'appointment_name'=> $request->appointment_name,
             'availabilities_id'=> $request->availabilities_id,
             'doctor_id'=> $request->doctor_id,
             'patient_id'=> $request->patient_id,
@@ -281,6 +283,7 @@ class HospitalController extends Controller
 
     public function store_prescription(Request $request){
         $request->validate([
+            // 'appointments_name'=> 'required',
             'appointments_id'=> 'required',
             'patients_id'=> 'required',
             'doctors_id'=> 'required',
@@ -291,6 +294,7 @@ class HospitalController extends Controller
             'signed_date'=> 'required|max:191|string',
         ]);
         Prescriptions::create([
+            // 'appointments_name'=> $request->appointments_name,
             'appointments_id'=> $request->appointments_id,
             'patients_id'=> $request->patients_id,
             'doctors_id'=> $request->doctors_id,

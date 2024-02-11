@@ -58,7 +58,7 @@
                 <tr>
 
                     <th>ID</th>
-                    <th>Appointments Id</th>
+                    <th>Appointments Name</th>
                     <th>Patients Id</th>
                     <th>Doctors Id</th>
                     <th>Date</th>
@@ -73,7 +73,8 @@
                 @foreach ($patientData as $item)
                     <tr>
                         <td>{{ $item->id }}</td>
-                        <td>{{ $item->appointment()->availabilities_id }}</td>
+                        <td>{{ $item->appointment()->appointment_name }}</td>
+                        
                         <td>{{ $item->patient()->name }}</td>
                         <td>{{ $item->doctor()->name }}</td>
                         <td>{{ $item->date }}</td>
