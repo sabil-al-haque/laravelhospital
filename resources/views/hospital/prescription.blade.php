@@ -73,9 +73,9 @@
                 @foreach ($patientData as $item)
                     <tr>
                         <td>{{ $item->id }}</td>
-                        <td>{{ $item->appointments_id }}</td>
-                        <td>{{ $item->patients_id }}</td>
-                        <td>{{ $item->doctors_id }}</td>
+                        <td>{{ $item->appointment()->availabilities_id }}</td>
+                        <td>{{ $item->patient()->name }}</td>
+                        <td>{{ $item->doctor()->name }}</td>
                         <td>{{ $item->date }}</td>
                         <td>{{ $item->medication }}</td>
                         <td>{{ $item->additional_inf }}</td>

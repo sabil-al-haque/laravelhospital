@@ -21,8 +21,26 @@ class Prescriptions extends Model
 
     ];
 
+    public function appointment()
+    {
+        // return Expertises::find($this->experties_id);
+        return Appointments::where('id',$this->appointments_id)->get()->first();
+    }
+
+    public function patient()
+    {
+        // return Expertises::find($this->experties_id);
+        return Patients::where('id',$this->patients_id)->get()->first();
+    }
+
     public function doctor()
     {
-        return $this->belongsTo(Doctor::class, 'speciality', 'symtom');
+        // return Expertises::find($this->experties_id);
+        return Doctor::where('id',$this->doctors_id)->get()->first();
     }
+
+    // public function doctor()
+    // {
+    //     return $this->belongsTo(Doctor::class, 'speciality', 'symtom');
+    // }
 }

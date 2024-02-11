@@ -69,10 +69,10 @@
                 @foreach ($appointments as $item)
                     <tr>
                         <td>{{ $item->id }}</td>
-                        <td>{{ $item->availabilities_id }}</td>
-                        <td>{{ $item->doctor_id }}</td>
-                        <td>{{ $item->patient_id }}</td>
-                        <td>{{ $item->diease_id }}</td>
+                        <td>{{ $item->availability()->title }}</td>
+                        <td>{{ $item->doctor()->name }}</td>
+                        <td>{{ $item->patient()->name }}</td>
+                        <td>{{ $item->disease()->disease_name }}</td>
                         <td>
                             <a href="{{ url('appointment/'.$item->id.'/edit') }}" class="btn btn-success mx-2">Edit</a>
                             <a href="{{ url('appointment/'.$item->id.'/delete') }}" class="btn btn-danger mx-1" onclick="return confirm('Are You Sure?')">Delete</a>

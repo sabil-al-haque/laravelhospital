@@ -23,7 +23,8 @@ class Doctor extends Model
 
     public function expertises()
     {
-        return Expertises::find($this->experties_id);
+        // return Expertises::find($this->experties_id);
+        return Expertises::where('id',$this->experties_id)->get()->first();
     }
 
 
