@@ -14,8 +14,13 @@ use App\Http\Controllers\HospitalController;
 |
 */
 
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
-Route::get('/', [HospitalController::class, 'home']);
+
+Route::get('/', [HospitalController::class, 'index']);
+Route::get('/home', [HospitalController::class, 'redirect']);
 
 
 Route::get('/doctor', [HospitalController::class, 'd_index'])->name('doctor.d_index');
@@ -67,9 +72,9 @@ Route::get('doctor/{id}/delete',[HospitalController::class, 'ddelete']);
  Route::get('prescription/{id}/delete',[HospitalController::class, 'prescription_delete']);
 
 
- Route::get('/login', [HospitalController::class, 'login']);
- Route::get('/createaccount', [HospitalController::class, 'reg']);
- Route::get('/profile', [HospitalController::class, 'profile']);
+//  Route::get('/login', [HospitalController::class, 'login']);
+//  Route::get('/createaccount', [HospitalController::class, 'reg']);
+//  Route::get('/profile', [HospitalController::class, 'profile']);
 
 
  Route::get('/availability', [HospitalController::class, 'availability_index']);
@@ -96,5 +101,15 @@ Route::get('doctor/{id}/delete',[HospitalController::class, 'ddelete']);
  Route::get('experties/{id}/delete',[HospitalController::class, 'experties_delete']);
 
 
- Route::get('admin',[HospitalController::class, 'admin_index']);
+ Route::get('/admin',[HospitalController::class, 'admin_index']);
 
+
+Route::middleware([
+    'auth:sanctum',
+    config('jetstream.auth_session'),
+    'verified',
+])->group(function () {
+    Route::get('/dashboard', function () {
+        return view('dashboard');
+    })->name('dashboard');
+});

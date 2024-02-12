@@ -2,6 +2,11 @@
 
 namespace App\Http\Controllers;
 
+
+use Illuminate\Support\Facades\Auth;
+use App\Models\User;
+
+
 use Illuminate\Http\Request;
 use App\Models\Doctor;
 use App\Models\Patients;
@@ -15,7 +20,33 @@ use App\Models\Diseases;
 class HospitalController extends Controller
 {
 
-    public function home(){
+
+    public function redirect()
+    {
+        if(Auth::id())
+        {
+
+            if(Auth::user()->usertype=='0')
+            {
+                // $doctor = doctor::all();
+                // return view('user.home',compact('doctor'));
+
+                return view('hospital.home');
+            }
+
+            else
+            {
+                return view('admin.home');
+            }
+
+        }
+        else
+        {
+            return redirect()->back();
+        }
+    }
+
+    public function index(){
 
         return view('hospital.home');
 
@@ -341,9 +372,7 @@ class HospitalController extends Controller
         $patientData->delete();
         return redirect()->back()->with('status','prescription Deleted');
     }
-    public function admin_index(){
-        return view('admin.index');
-    }
+
 
 
     public function profile(){
@@ -508,6 +537,12 @@ class HospitalController extends Controller
         $experties = Expertises::findOrFail($id);
         $experties->delete();
         return redirect()->back()->with('status','Experties Deleted');
+    }
+
+
+
+    public function admin_index(){
+        return view('admin.index');
     }
 
 }
