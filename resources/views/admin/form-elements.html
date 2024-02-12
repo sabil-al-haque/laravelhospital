@@ -9,14 +9,14 @@
         <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
         <meta content="Themesbrand" name="author" />
         <!-- App favicon -->
-        <link rel="shortcut icon" href="admin/assets/images/favicon.ico">
+        <link rel="shortcut icon" href="assets/images/favicon.ico">
 
         <!-- Bootstrap Css -->
-        <link href="admin/assets/css/bootstrap.min.css" id="bootstrap-style" rel="stylesheet" type="text/css" />
+        <link href="assets/css/bootstrap.min.css" id="bootstrap-style" rel="stylesheet" type="text/css" />
         <!-- Icons Css -->
-        <link href="admin/assets/css/icons.min.css" rel="stylesheet" type="text/css" />
+        <link href="assets/css/icons.min.css" rel="stylesheet" type="text/css" />
         <!-- App Css-->
-        <link href="admin/assets/css/app.min.css" id="app-style" rel="stylesheet" type="text/css" />
+        <link href="assets/css/app.min.css" id="app-style" rel="stylesheet" type="text/css" />
 
     </head>
 
@@ -133,7 +133,10 @@
                 </div>
             </div>
             <!-- Left Sidebar End -->
-             <!-- ============================================================== -->
+
+
+
+            <!-- ============================================================== -->
             <!-- Start right Content here -->
             <!-- ============================================================== -->
             <div class="main-content">
@@ -143,26 +146,75 @@
                         <div class="row">
                             <div class="col-12">
                                 <div class="page-title-box d-sm-flex align-items-center justify-content-between">
-                                    <h4 class="mb-sm-0 font-size-18">Create Doctor Experties</h4>
+                                    <h4 class="mb-sm-0 font-size-18">Form Elements</h4>
                                 </div>
                             </div>
                         </div>
                         <!-- end page title -->
 
                         <!-- Your form code starts here -->
-                        <div class="container mt-4">
+                        <div class="container">
+                            <a href="{{ url('/doctor') }}" class="btn btn-primary my-4">Back</a>
                             @if (session('status'))
-                            <div class="alert alert-success">{{ session('status') }}</div>
+                            <div class="alert alert-success"> {{ session('status') }}</div>
                             @endif
-                            <form method="post" action="{{ url('experties') }}">
+                            <form method="post" action="{{ route('doctor.store') }}">
                                 @csrf
-                                <div class="form-row">
-                                    <div class="form-group col-md-6">
-                                        <label for="title">Experties Name</label>
-                                        <input type="text" class="form-control" id="title" name="title" required>
-                                    </div>
+                                <div class="mb-3">
+                                    <label for="name">Name</label>
+                                    <input type="text" name="name" class="form-control" placeholder="Enter Your Name">
+                                    @error('name')<span class="text-danger">{{ $message }}</span>@enderror
                                 </div>
-                                <button type="submit" class="btn btn-primary my-4">Add Experties</button>
+
+                                <div class="mb-3">
+                                    <label for="email">Email address</label>
+                                    <input type="email" name="email" class="form-control" placeholder="Enter Your Email Address">
+                                    @error('email')<span class="text-danger">{{ $message }}</span>@enderror
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="phone">Phone Number</label>
+                                    <input type="text" name="phone" class="form-control" placeholder="Enter Your Phone Number" data-inputmask="'mask': '+8809999999999'">
+                                    @error('phone')<span class="text-danger">{{ $message }}</span>@enderror
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="gender">Gender</label>
+                                    <select name="gender" class="form-select">
+                                        <option value="male">Male</option>
+                                        <option value="female">Female</option>
+                                        <option value="other">Other</option>
+                                    </select>
+                                    @error('gender')<span class="text-danger">{{ $message }}</span>@enderror
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="address">Address</label>
+                                    <input type="text" name="address" class="form-control" placeholder="Enter Your Full Address">
+                                    @error('address')<span class="text-danger">{{ $message }}</span>@enderror
+                                </div>
+                                <div class="mb-3">
+                                    <label for="address">Degree</label>
+                                    <input type="text" name="degree" class="form-control" placeholder="Enter Your Degree">
+                                    @error('address')<span class="text-danger">{{ $message }}</span>@enderror
+                                </div>
+                                <div class="mb-3">
+                                    <label for="address">Current Clinic</label>
+                                    <input type="text" name="clinic" class="form-control" placeholder="Enter Your Current Clinic Name">
+                                    @error('address')<span class="text-danger">{{ $message }}</span>@enderror
+                                </div>
+                                <div class="mb-3">
+                                    <label for="address">Password</label>
+                                    <input type="password" name="Password" class="form-control" placeholder="Enter Your Password">
+                                    @error('address')<span class="text-danger">{{ $message }}</span>@enderror
+                                </div>
+                                <div class="mb-3">
+                                    <label for="address">Experties</label>
+                                    <input type="number" name="experties_id" class="form-control" placeholder="Enter Experties">
+                                    @error('address')<span class="text-danger">{{ $message }}</span>@enderror
+                                </div>
+
+                                <input type="submit" class="btn btn-primary my-4" value="Submit">
                             </form>
                         </div>
                         <!-- Your form code ends here -->
@@ -188,15 +240,22 @@
             </div>
             <!-- end main content-->
 
-            <!-- JAVASCRIPT -->
-            <script src="admin/assets/libs/jquery/jquery.min.js"></script>
-            <script src="admin/assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
-            <script src="admin/assets/libs/metismenu/metisMenu.min.js"></script>
-            <script src="admin/assets/libs/simplebar/simplebar.min.js"></script>
-            <script src="admin/assets/libs/node-waves/waves.min.js"></script>
+        </div>
+        <!-- END layout-wrapper -->
+        </div>
+        <!-- /Right-bar -->
 
-            <script src="admin/assets/js/app.js"></script>
+        <!-- Right bar overlay-->
+        <div class="rightbar-overlay"></div>
 
-        </body>
+        <!-- JAVASCRIPT -->
+        <script src="assets/libs/jquery/jquery.min.js"></script>
+        <script src="assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
+        <script src="assets/libs/metismenu/metisMenu.min.js"></script>
+        <script src="assets/libs/simplebar/simplebar.min.js"></script>
+        <script src="assets/libs/node-waves/waves.min.js"></script>
 
-        </html>
+        <script src="assets/js/app.js"></script>
+
+    </body>
+</html>
