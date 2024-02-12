@@ -21,6 +21,28 @@
     </head>
 
     <body data-sidebar="dark" data-layout-mode="light">
+
+        <!-- <body data-layout="horizontal" data-topbar="dark"> -->
+
+            <!-- Begin page -->
+            <div id="layout-wrapper">
+                <header id="page-topbar">
+                    <div class="navbar-header">
+                        <div class="d-flex">
+                            <button type="button" class="btn btn-sm px-3 font-size-16 header-item waves-effect" id="vertical-menu-btn">
+                                <i class="fa fa-fw fa-bars"></i>
+                            </button>
+
+                            <!-- App Search-->
+                            <form class="app-search d-none d-lg-block">
+                                <div class="position-relative">
+                                    <input type="text" class="form-control" placeholder="Search...">
+                                    <span class="bx bx-search-alt"></span>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </header>
             <!-- ========== Left Sidebar Start ========== -->
             <div class="vertical-menu">
 
@@ -151,7 +173,7 @@
 
                         <!-- Your form code starts here -->
                         <div class="container">
-                           
+
                             @if (session('status'))
                             <div class="alert alert-success">{{ session('status') }}</div>
                             @endif

@@ -21,6 +21,28 @@
     </head>
 
     <body data-sidebar="dark" data-layout-mode="light">
+
+        <!-- <body data-layout="horizontal" data-topbar="dark"> -->
+
+            <!-- Begin page -->
+            <div id="layout-wrapper">
+                <header id="page-topbar">
+                    <div class="navbar-header">
+                        <div class="d-flex">
+                            <button type="button" class="btn btn-sm px-3 font-size-16 header-item waves-effect" id="vertical-menu-btn">
+                                <i class="fa fa-fw fa-bars"></i>
+                            </button>
+
+                            <!-- App Search-->
+                            <form class="app-search d-none d-lg-block">
+                                <div class="position-relative">
+                                    <input type="text" class="form-control" placeholder="Search...">
+                                    <span class="bx bx-search-alt"></span>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </header>
             <!-- ========== Left Sidebar Start ========== -->
             <div class="vertical-menu">
 
@@ -159,7 +181,7 @@
                     <form method="post" action="{{ url('availability') }}">
                         @csrf
                         <div class="container mt-5">
-                            <h1 class="mb-4">Create Doctor Availabilities</h1>
+                            
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group">
