@@ -28,7 +28,12 @@
     <body data-sidebar="dark" data-layout-mode="light">
 
     <!-- <body data-layout="horizontal" data-topbar="dark"> -->
-
+<nav>
+    <div>
+        <x-app-layout>
+        </x-app-layout>
+    </div>
+</nav>
         <!-- Begin page -->
         <div id="layout-wrapper">
 
