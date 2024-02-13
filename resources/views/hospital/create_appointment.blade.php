@@ -53,6 +53,12 @@
                         <!-- Left Menu Start -->
                         <ul class="metismenu list-unstyled" id="side-menu">
                             <li class="menu-title" key="t-menu">Menu</li>
+                            <li>
+                                <a href="{{ url('/doctor') }}" key="t-default">
+                                    <i class="bx bx-home-circle"></i>
+                                    <span key="t-dashboards">Dashboard</span>
+                                </a>
+                            </li>
 
                             <li>
                                 <a href="javascript: void(0);" class="has-arrow waves-effect">
@@ -147,6 +153,20 @@
                                 </ul>
                             </li>
 
+                            <li>
+                                <a href="{{ url('/doctor') }}" key="t-default">
+                                    <i class="bx bx-home-circle"></i>
+                                    <span key="t-dashboards">Profile</span>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="{{ url('/doctor') }}" key="t-default">
+                                    <i class="bx bx-home-circle"></i>
+                                    <span key="t-dashboards">Log Out</span>
+                                </a>
+                            </li>
+
 
 
                         </ul>
@@ -177,7 +197,7 @@
                     @if (session('status'))
                     <div class="alert alert-success">{{ session('status') }}</div>
                     @endif
-                    <form action="{{ route('appointment.store') }}" method="POST">
+                    <form method="post" action="{{ url('appointment') }}">
                         @csrf
                         <div class="form-row">
                             <div class="form-group col-md-6">
@@ -197,8 +217,8 @@
                                 <input type="number" name="patient_id" class="form-control" id="patient_id" placeholder="Enter patient ID" required>
                             </div>
                             <div class="form-group col-md-6">
-                                <label for="disease_id">Disease ID</label>
-                                <input type="number" name="disease_id" class="form-control" id="disease_id" placeholder="Enter disease ID" required>
+                                <label for="diease_id">Disease ID</label>
+                                <input type="number" name="diease_id" class="form-control" id="diease_id" placeholder="Enter disease ID" required>
                             </div>
                         </div>
                         <button type="submit" class="btn btn-primary my-4">Submit</button>
