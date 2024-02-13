@@ -1,5 +1,4 @@
 <x-app-layout>
-<h1 >This is admin dashboard</h1>
 </x-app-layout>
 
 <!doctype html>
@@ -10,7 +9,7 @@
 <head>
 
         <meta charset="utf-8" />
-        <title>Dashboard | Skote - Admin & Dashboard Template</title>
+        <title>Dashboard | Skoder - Admin & Dashboard Template</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
         <meta content="Themesbrand" name="author" />
@@ -33,13 +32,10 @@
         <!-- Begin page -->
         <div id="layout-wrapper">
 
-
-
-
             <!-- ========== Left Sidebar Start ========== -->
             <div class="vertical-menu">
 
-                <div data-simplebar >------------------
+                <div data-simplebar >
 
                     <!--- Sidemenu -->
                     <div id="sidebar-menu">
@@ -362,8 +358,6 @@
 
                 <!-- end modal -->
 
-
-
                 <footer class="footer">
                     <div class="container-fluid">
                         <div class="row">
@@ -407,6 +401,4 @@
         <script src="admin/assets/js/app.js"></script>
     </body>
 
-
-<!-- Mirrored from themesbrand.com/skote-django/layouts/ by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 08 Feb 2024 20:29:26 GMT -->
 </html>
