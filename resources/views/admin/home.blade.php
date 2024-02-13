@@ -1,6 +1,3 @@
-<x-app-layout>
-</x-app-layout>
-
 <!doctype html>
 <html lang="en">
 
@@ -28,12 +25,6 @@
     <body data-sidebar="dark" data-layout-mode="light">
 
     <!-- <body data-layout="horizontal" data-topbar="dark"> -->
-<nav>
-    <div>
-        <x-app-layout>
-        </x-app-layout>
-    </div>
-</nav>
         <!-- Begin page -->
         <div id="layout-wrapper">
 
@@ -60,7 +51,7 @@
                                     <span key="t-dashboards">Doctors</span>
                                 </a>
                                 <ul class="sub-menu" aria-expanded="false">
-                                    <li><a href="{{ url('/doctor') }}" key="t-default">View Doctors</a></li>
+
                                     <li><a href="{{ url('/create_doctor') }}" key="t-saas">Create Doctor</a></li>
 
                                 </ul>
@@ -73,7 +64,7 @@
                                 </a>
                                 <ul class="sub-menu" aria-expanded="false">
                                     <li><a href="{{ url('/patient') }}" key="t-default">View Patient</a></li>
-                                    <li><a href="{{ url('/create_patient') }}" key="t-crypto">Create Patient</a></li>
+
 
                                 </ul>
                             </li>
@@ -96,7 +87,6 @@
                                     <span key="t-dashboards">Prescriptions</span>
                                 </a>
                                 <ul class="sub-menu" aria-expanded="false">
-                                    <li><a href="{{ url('/prescription') }}" key="t-default">View Presscription</a></li>
                                     <li><a href="{{ url('/create_prescription') }}" key="t-saas">Create Presscription</a></li>
 
                                 </ul>
@@ -119,7 +109,7 @@
                                 </a>
                                 <ul class="sub-menu" aria-expanded="false">
                                     <li><a href="{{ url('/disease') }}" key="t-default">View Disease</a></li>
-                                    <li><a href="{{ url('/create_disease') }}" key="t-saas">Create Disease</a></li>
+
 
                                 </ul>
                             </li>
@@ -129,36 +119,15 @@
                                     <span key="t-dashboards">Experties</span>
                                 </a>
                                 <ul class="sub-menu" aria-expanded="false">
-                                    <li><a href="{{ url('/experties') }}" key="t-default">View Experties</a></li>
+
                                     <li><a href="{{ url('/create_experties') }}" key="t-saas">Create Experties</a></li>
 
                                 </ul>
                             </li>
-                            <li>
-                                <a href="javascript: void(0);" class="has-arrow waves-effect">
-                                    <i class="bx bx-home-circle"></i>
-                                    <span key="t-dashboards">Users</span>
-                                </a>
-                                <ul class="sub-menu" aria-expanded="false">
-                                    <li><a href="#" key="t-default">Admin</a></li>
-                                    <li><a href="{{ url('/doctor') }}" key="t-saas">Doctor</a></li>
-                                    <li><a href="{{ url('/patient') }}" key="t-saas">Patient</a></li>
-
-                                </ul>
-                            </li>
 
                             <li>
-                                <a href="{{ url('/doctor') }}" key="t-default">
-                                    <i class="bx bx-home-circle"></i>
-                                    <span key="t-dashboards">Profile</span>
-                                </a>
-                            </li>
-
-                            <li>
-                                <a href="{{ url('/doctor') }}" key="t-default">
-                                    <i class="bx bx-home-circle"></i>
-                                    <span key="t-dashboards">Log Out</span>
-                                </a>
+                                <x-app-layout>
+                                </x-app-layout>
                             </li>
 
 
@@ -178,24 +147,6 @@
 
                 <div class="page-content">
                     <div class="container-fluid">
-
-                        <!-- start page title -->
-                        <div class="row">
-                            <div class="col-12">
-                                <div class="page-title-box d-sm-flex align-items-center justify-content-between">
-                                    <h4 class="mb-sm-0 font-size-18">Dashboard</h4>
-
-                                    <div class="page-title-right">
-                                        <ol class="breadcrumb m-0">
-                                            <li class="breadcrumb-item"><a href="javascript: void(0);">Dashboards</a></li>
-                                            <li class="breadcrumb-item active">Dashboard</li>
-                                        </ol>
-                                    </div>
-
-                                </div>
-                            </div>
-                        </div>
-                        <!-- end page title -->
 
 
                         <div class="row">

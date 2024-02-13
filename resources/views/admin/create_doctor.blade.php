@@ -1,3 +1,5 @@
+
+
 <!doctype html>
 <html lang="en">
 
@@ -9,20 +11,42 @@
         <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
         <meta content="Themesbrand" name="author" />
         <!-- App favicon -->
-        <link rel="shortcut icon" href="assets/images/favicon.ico">
+        <link rel="shortcut icon" href="admin/assets/images/favicon.ico">
 
         <!-- Bootstrap Css -->
-        <link href="assets/css/bootstrap.min.css" id="bootstrap-style" rel="stylesheet" type="text/css" />
+        <link href="admin/assets/css/bootstrap.min.css" id="bootstrap-style" rel="stylesheet" type="text/css" />
         <!-- Icons Css -->
-        <link href="assets/css/icons.min.css" rel="stylesheet" type="text/css" />
+        <link href="admin/assets/css/icons.min.css" rel="stylesheet" type="text/css" />
         <!-- App Css-->
-        <link href="assets/css/app.min.css" id="app-style" rel="stylesheet" type="text/css" />
+        <link href="admin/assets/css/app.min.css" id="app-style" rel="stylesheet" type="text/css" />
 
     </head>
 
     <body data-sidebar="dark" data-layout-mode="light">
-            <!-- ========== Left Sidebar Start ========== -->
-            <div class="vertical-menu">
+
+        <!-- <body data-layout="horizontal" data-topbar="dark"> -->
+
+            <!-- Begin page -->
+            <div id="layout-wrapper">
+                <header id="page-topbar">
+                    <div class="navbar-header">
+                        <div class="d-flex">
+                            <button type="button" class="btn btn-sm px-3 font-size-16 header-item waves-effect" id="vertical-menu-btn">
+                                <i class="fa fa-fw fa-bars"></i>
+                            </button>
+
+                            <!-- App Search-->
+                            <form class="app-search d-none d-lg-block">
+                                <div class="position-relative">
+                                    <input type="text" class="form-control" placeholder="Search...">
+                                    <span class="bx bx-search-alt"></span>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </header>
+             <!-- ========== Left Sidebar Start ========== -->
+             <div class="vertical-menu">
 
                 <div data-simplebar >
 
@@ -39,22 +63,11 @@
                                 </a>
                                 <ul class="sub-menu" aria-expanded="false">
                                     <li><a href="{{ url('/doctor') }}" key="t-default">View Doctors</a></li>
-                                    <li><a href="{{ url('/create_doctor') }}" key="t-saas">Create Doctor</a></li>
 
                                 </ul>
                             </li>
 
-                            <li>
-                                <a href="javascript: void(0);" class="has-arrow waves-effect">
-                                    <i class="bx bx-home-circle"></i>
-                                    <span key="t-dashboards">Patients</span>
-                                </a>
-                                <ul class="sub-menu" aria-expanded="false">
-                                    <li><a href="{{ url('/patient') }}" key="t-default">View Patient</a></li>
-                                    <li><a href="{{ url('/create_patient') }}" key="t-crypto">Create Patient</a></li>
 
-                                </ul>
-                            </li>
 
                             <li>
                                 <a href="javascript: void(0);" class="has-arrow waves-effect">
@@ -62,7 +75,6 @@
                                     <span key="t-dashboards">Appointments</span>
                                 </a>
                                 <ul class="sub-menu" aria-expanded="false">
-                                    <li><a href="{{ url('/appointment') }}" key="t-default">View Appointment</a></li>
                                     <li><a href="{{ url('/create_appointment') }}" key="t-saas">Create Appointment</a></li>
 
                                 </ul>
@@ -75,21 +87,10 @@
                                 </a>
                                 <ul class="sub-menu" aria-expanded="false">
                                     <li><a href="{{ url('/prescription') }}" key="t-default">View Presscription</a></li>
-                                    <li><a href="{{ url('/create_prescription') }}" key="t-saas">Create Presscription</a></li>
 
                                 </ul>
                             </li>
-                            <li>
-                                <a href="javascript: void(0);" class="has-arrow waves-effect">
-                                    <i class="bx bx-home-circle"></i>
-                                    <span key="t-dashboards">Availability</span>
-                                </a>
-                                <ul class="sub-menu" aria-expanded="false">
-                                    <li><a href="{{ url('/availability') }}" key="t-default">View Availability</a></li>
-                                    <li><a href="{{ url('/create_availability') }}" key="t-saas">Create Availability</a></li>
 
-                                </ul>
-                            </li>
                             <li>
                                 <a href="javascript: void(0);" class="has-arrow waves-effect">
                                     <i class="bx bx-home-circle"></i>
@@ -101,30 +102,12 @@
 
                                 </ul>
                             </li>
+
+
                             <li>
-                                <a href="javascript: void(0);" class="has-arrow waves-effect">
-                                    <i class="bx bx-home-circle"></i>
-                                    <span key="t-dashboards">Experties</span>
-                                </a>
-                                <ul class="sub-menu" aria-expanded="false">
-                                    <li><a href="{{ url('/experties') }}" key="t-default">View Experties</a></li>
-                                    <li><a href="{{ url('/create_experties') }}" key="t-saas">Create Experties</a></li>
-
-                                </ul>
+                                <x-app-layout>
+                                </x-app-layout>
                             </li>
-                            <li>
-                                <a href="javascript: void(0);" class="has-arrow waves-effect">
-                                    <i class="bx bx-home-circle"></i>
-                                    <span key="t-dashboards">Users</span>
-                                </a>
-                                <ul class="sub-menu" aria-expanded="false">
-                                    <li><a href="#" key="t-default">Admin</a></li>
-                                    <li><a href="{{ url('/doctor') }}" key="t-saas">Doctor</a></li>
-                                    <li><a href="{{ url('/patient') }}" key="t-saas">Patient</a></li>
-
-                                </ul>
-                            </li>
-
 
 
                         </ul>
@@ -146,7 +129,7 @@
                         <div class="row">
                             <div class="col-12">
                                 <div class="page-title-box d-sm-flex align-items-center justify-content-between">
-                                    <h4 class="mb-sm-0 font-size-18">Form Elements</h4>
+                                    <h4 class="mb-sm-0 font-size-18">Create Doctor</h4>
                                 </div>
                             </div>
                         </div>
@@ -154,7 +137,7 @@
 
                         <!-- Your form code starts here -->
                         <div class="container">
-                            <a href="{{ url('/doctor') }}" class="btn btn-primary my-4">Back</a>
+
                             @if (session('status'))
                             <div class="alert alert-success"> {{ session('status') }}</div>
                             @endif
@@ -249,13 +232,13 @@
         <div class="rightbar-overlay"></div>
 
         <!-- JAVASCRIPT -->
-        <script src="assets/libs/jquery/jquery.min.js"></script>
-        <script src="assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
-        <script src="assets/libs/metismenu/metisMenu.min.js"></script>
-        <script src="assets/libs/simplebar/simplebar.min.js"></script>
-        <script src="assets/libs/node-waves/waves.min.js"></script>
+        <script src="admin/assets/libs/jquery/jquery.min.js"></script>
+        <script src="admin/assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
+        <script src="admin/assets/libs/metismenu/metisMenu.min.js"></script>
+        <script src="admin/assets/libs/simplebar/simplebar.min.js"></script>
+        <script src="admin/assets/libs/node-waves/waves.min.js"></script>
 
-        <script src="assets/js/app.js"></script>
+        <script src="admin/assets/js/app.js"></script>
 
     </body>
 </html>

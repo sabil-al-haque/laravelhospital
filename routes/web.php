@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HospitalController;
+use App\Http\Controllers\AdminController;
 
 /*
 |--------------------------------------------------------------------------
@@ -102,6 +103,7 @@ Route::get('doctor/{id}/delete',[HospitalController::class, 'ddelete']);
 
 
  Route::get('/admin',[HospitalController::class, 'admin_index']);
+ Route::get('/admin_doctor',[HospitalController::class, 'admin_doctor']);
 
 
 Route::middleware([

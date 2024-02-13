@@ -52,8 +52,8 @@
                 </div>
             </header>
 
-              <!-- ========== Left Sidebar Start ========== -->
-            <div class="vertical-menu">
+             <!-- ========== Left Sidebar Start ========== -->
+             <div class="vertical-menu">
 
                 <div data-simplebar >
 
@@ -77,10 +77,21 @@
                                 <ul class="sub-menu" aria-expanded="false">
                                     <li><a href="{{ url('/doctor') }}" key="t-default">View Doctors</a></li>
 
+
                                 </ul>
                             </li>
 
+                            <li>
+                                <a href="javascript: void(0);" class="has-arrow waves-effect">
+                                    <i class="bx bx-home-circle"></i>
+                                    <span key="t-dashboards">Patients</span>
+                                </a>
+                                <ul class="sub-menu" aria-expanded="false">
 
+                                    <li><a href="{{ url('/create_patient') }}" key="t-crypto">Create Patient</a></li>
+
+                                </ul>
+                            </li>
 
                             <li>
                                 <a href="javascript: void(0);" class="has-arrow waves-effect">
@@ -88,6 +99,7 @@
                                     <span key="t-dashboards">Appointments</span>
                                 </a>
                                 <ul class="sub-menu" aria-expanded="false">
+
                                     <li><a href="{{ url('/create_appointment') }}" key="t-saas">Create Appointment</a></li>
 
                                 </ul>
@@ -103,32 +115,66 @@
 
                                 </ul>
                             </li>
+                            <li>
+                                <a href="javascript: void(0);" class="has-arrow waves-effect">
+                                    <i class="bx bx-home-circle"></i>
+                                    <span key="t-dashboards">Availability</span>
+                                </a>
+                                <ul class="sub-menu" aria-expanded="false">
+                                    <li><a href="{{ url('/availability') }}" key="t-default">View Availability</a></li>
 
+                                </ul>
+                            </li>
                             <li>
                                 <a href="javascript: void(0);" class="has-arrow waves-effect">
                                     <i class="bx bx-home-circle"></i>
                                     <span key="t-dashboards">Disease</span>
                                 </a>
                                 <ul class="sub-menu" aria-expanded="false">
-                                    <li><a href="{{ url('/disease') }}" key="t-default">View Disease</a></li>
                                     <li><a href="{{ url('/create_disease') }}" key="t-saas">Create Disease</a></li>
 
                                 </ul>
                             </li>
+                            <li>
+                                <a href="javascript: void(0);" class="has-arrow waves-effect">
+                                    <i class="bx bx-home-circle"></i>
+                                    <span key="t-dashboards">Experties</span>
+                                </a>
+                                <ul class="sub-menu" aria-expanded="false">
+                                    <li><a href="{{ url('/experties') }}" key="t-default">View Experties</a></li>
 
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="javascript: void(0);" class="has-arrow waves-effect">
+                                    <i class="bx bx-home-circle"></i>
+                                    <span key="t-dashboards">Users</span>
+                                </a>
+                                <ul class="sub-menu" aria-expanded="false">
+                                    <li><a href="#" key="t-default">Admin</a></li>
+                                    <li><a href="{{ url('/doctor') }}" key="t-saas">Doctor</a></li>
+                                    <li><a href="{{ url('/patient') }}" key="t-saas">Patient</a></li>
+
+                                </ul>
+                            </li>
 
                             <li>
-                                <a href="{{ url('/create_disease') }}" key="t-saas">
+                                <a href="{{ url('/doctor') }}" key="t-default">
                                     <i class="bx bx-home-circle"></i>
                                     <span key="t-dashboards">Profile</span>
                                 </a>
                             </li>
 
                             <li>
-                                <a href="{{ url('/create_disease') }}" key="t-saas">
+                                <a href="{{ url('/doctor') }}" key="t-default">
                                     <i class="bx bx-home-circle"></i>
                                     <span key="t-dashboards">Log Out</span>
                                 </a>
+                            </li>
+
+                            <li>
+                                <x-app-layout>
+                                </x-app-layout>
                             </li>
 
 

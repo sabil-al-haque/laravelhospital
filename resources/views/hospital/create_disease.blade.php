@@ -67,7 +67,7 @@
                                 </a>
                                 <ul class="sub-menu" aria-expanded="false">
                                     <li><a href="{{ url('/doctor') }}" key="t-default">View Doctors</a></li>
-                                    <li><a href="{{ url('/create_doctor') }}" key="t-saas">Create Doctor</a></li>
+
 
                                 </ul>
                             </li>
@@ -78,7 +78,7 @@
                                     <span key="t-dashboards">Patients</span>
                                 </a>
                                 <ul class="sub-menu" aria-expanded="false">
-                                    <li><a href="{{ url('/patient') }}" key="t-default">View Patient</a></li>
+
                                     <li><a href="{{ url('/create_patient') }}" key="t-crypto">Create Patient</a></li>
 
                                 </ul>
@@ -90,7 +90,7 @@
                                     <span key="t-dashboards">Appointments</span>
                                 </a>
                                 <ul class="sub-menu" aria-expanded="false">
-                                    <li><a href="{{ url('/appointment') }}" key="t-default">View Appointment</a></li>
+
                                     <li><a href="{{ url('/create_appointment') }}" key="t-saas">Create Appointment</a></li>
 
                                 </ul>
@@ -103,7 +103,6 @@
                                 </a>
                                 <ul class="sub-menu" aria-expanded="false">
                                     <li><a href="{{ url('/prescription') }}" key="t-default">View Presscription</a></li>
-                                    <li><a href="{{ url('/create_prescription') }}" key="t-saas">Create Presscription</a></li>
 
                                 </ul>
                             </li>
@@ -114,7 +113,6 @@
                                 </a>
                                 <ul class="sub-menu" aria-expanded="false">
                                     <li><a href="{{ url('/availability') }}" key="t-default">View Availability</a></li>
-                                    <li><a href="{{ url('/create_availability') }}" key="t-saas">Create Availability</a></li>
 
                                 </ul>
                             </li>
@@ -124,7 +122,6 @@
                                     <span key="t-dashboards">Disease</span>
                                 </a>
                                 <ul class="sub-menu" aria-expanded="false">
-                                    <li><a href="{{ url('/disease') }}" key="t-default">View Disease</a></li>
                                     <li><a href="{{ url('/create_disease') }}" key="t-saas">Create Disease</a></li>
 
                                 </ul>
@@ -136,7 +133,6 @@
                                 </a>
                                 <ul class="sub-menu" aria-expanded="false">
                                     <li><a href="{{ url('/experties') }}" key="t-default">View Experties</a></li>
-                                    <li><a href="{{ url('/create_experties') }}" key="t-saas">Create Experties</a></li>
 
                                 </ul>
                             </li>

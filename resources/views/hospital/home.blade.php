@@ -20,41 +20,43 @@
           <div class="collapse navbar-collapse" id="navbarNav">
               <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ url('/doctor') }}">Doctor</a>
+                    <a class="nav-link" href="{{ url('/doctor') }}">View Doctor</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="{{ url('/patient') }}">Patient</a>
+                    <a class="nav-link" href="{{ url('/create_patient') }}">Create Patient</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="{{ url('/availability') }}">Availability</a>
+                    <a class="nav-link" href="{{ url('/availability') }}">View Availability</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="{{ url('/disease') }}">Disease</a>
+                    <a class="nav-link" href="{{ url('/create_disease') }}">Create Disease</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="{{ url('/experties') }}">Experties</a>
+                    <a class="nav-link" href="{{ url('/experties') }}">View Experties</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="{{ url('/appointment') }}">Appointment</a>
+                    <a class="nav-link" href="{{ url('/create_appointment') }}">Create Appointment</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="{{ url('/prescription') }}">Prescription</a>
+                    <a class="nav-link" href="{{ url('/prescription') }}">View Prescription</a>
                   </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="{{ url('/profile') }}">Profile</a>
-                  </li>
+
 
                   @if (Route::has('login'))
 
                   @auth
 
+                  <x-app-layout>
+
+                  </x-app-layout>
+
                   @else
 
-                  <li class="nav-item">
-                    <a  href="{{route('login')}}">Login</a>
+                  <li class="nav-item" class="my=2">
+                    <a style="color: white"   href="{{route('login')}}">Login</a>
                   </li>
                   <li class="nav-item">
-                    <a  href="{{route('register')}}">Register</a>
+                    <a style="color: white"  href="{{route('register')}}">Register</a>
                   </li>
 
                   @endauth

@@ -60,12 +60,6 @@
                         <!-- Left Menu Start -->
                         <ul class="metismenu list-unstyled" id="side-menu">
                             <li class="menu-title" key="t-menu">Menu</li>
-                            <li>
-                                <a href="{{ url('/doctor') }}" key="t-default">
-                                    <i class="bx bx-home-circle"></i>
-                                    <span key="t-dashboards">Dashboard</span>
-                                </a>
-                            </li>
 
                             <li>
                                 <a href="javascript: void(0);" class="has-arrow waves-effect">
@@ -73,23 +67,12 @@
                                     <span key="t-dashboards">Doctors</span>
                                 </a>
                                 <ul class="sub-menu" aria-expanded="false">
-
-                                    <li><a href="{{ url('/create_doctor') }}" key="t-saas">Create Doctor</a></li>
-
-                                </ul>
-                            </li>
-
-                            <li>
-                                <a href="javascript: void(0);" class="has-arrow waves-effect">
-                                    <i class="bx bx-home-circle"></i>
-                                    <span key="t-dashboards">Patients</span>
-                                </a>
-                                <ul class="sub-menu" aria-expanded="false">
-                                    <li><a href="{{ url('/patient') }}" key="t-default">View Patient</a></li>
-
+                                    <li><a href="{{ url('/doctor') }}" key="t-default">View Doctors</a></li>
 
                                 </ul>
                             </li>
+
+
 
                             <li>
                                 <a href="javascript: void(0);" class="has-arrow waves-effect">
@@ -97,7 +80,6 @@
                                     <span key="t-dashboards">Appointments</span>
                                 </a>
                                 <ul class="sub-menu" aria-expanded="false">
-                                    <li><a href="{{ url('/appointment') }}" key="t-default">View Appointment</a></li>
                                     <li><a href="{{ url('/create_appointment') }}" key="t-saas">Create Appointment</a></li>
 
                                 </ul>
@@ -109,21 +91,11 @@
                                     <span key="t-dashboards">Prescriptions</span>
                                 </a>
                                 <ul class="sub-menu" aria-expanded="false">
-                                    <li><a href="{{ url('/create_prescription') }}" key="t-saas">Create Presscription</a></li>
+                                    <li><a href="{{ url('/prescription') }}" key="t-default">View Presscription</a></li>
 
                                 </ul>
                             </li>
-                            <li>
-                                <a href="javascript: void(0);" class="has-arrow waves-effect">
-                                    <i class="bx bx-home-circle"></i>
-                                    <span key="t-dashboards">Availability</span>
-                                </a>
-                                <ul class="sub-menu" aria-expanded="false">
-                                    <li><a href="{{ url('/availability') }}" key="t-default">View Availability</a></li>
-                                    <li><a href="{{ url('/create_availability') }}" key="t-saas">Create Availability</a></li>
 
-                                </ul>
-                            </li>
                             <li>
                                 <a href="javascript: void(0);" class="has-arrow waves-effect">
                                     <i class="bx bx-home-circle"></i>
@@ -131,27 +103,16 @@
                                 </a>
                                 <ul class="sub-menu" aria-expanded="false">
                                     <li><a href="{{ url('/disease') }}" key="t-default">View Disease</a></li>
-
-
-                                </ul>
-                            </li>
-                            <li>
-                                <a href="javascript: void(0);" class="has-arrow waves-effect">
-                                    <i class="bx bx-home-circle"></i>
-                                    <span key="t-dashboards">Experties</span>
-                                </a>
-                                <ul class="sub-menu" aria-expanded="false">
-
-                                    <li><a href="{{ url('/create_experties') }}" key="t-saas">Create Experties</a></li>
+                                    <li><a href="{{ url('/create_disease') }}" key="t-saas">Create Disease</a></li>
 
                                 </ul>
                             </li>
+
 
                             <li>
                                 <x-app-layout>
                                 </x-app-layout>
                             </li>
-
 
 
                         </ul>
@@ -173,7 +134,7 @@
                         <div class="row">
                             <div class="col-12">
                                 <div class="page-title-box d-sm-flex align-items-center justify-content-between">
-                                    <h4 class="mb-sm-0 font-size-18">Appoinments</h4>
+                                    <h4 class="mb-sm-0 font-size-18">Prescriptions</h4>
 
                                 </div>
                             </div>
@@ -185,31 +146,40 @@
                                 <div class="card">
                                     <div class="card-body">
 
-                                        <h4 class="card-title">Appoinments</h4>
+                                        <h4 class="card-title">Prescriptions</h4>
 
                                         <table id="datatable-buttons" class="table table-bordered dt-responsive nowrap w-100">
                                             <thead>
                                                 <tr>
 
                                                     <th>ID</th>
-                                                    <th>Availabilities Id</th>
-                                                    <th>Doctor Id</th>
-                                                    <th>Patient Id</th>
-                                                    <th>Diease Id</th>
+                                                    <th>Appointments Name</th>
+                                                    <th>Patients Id</th>
+                                                    <th>Doctors Id</th>
+                                                    <th>Date</th>
+                                                    <th>Medication Details</th>
+                                                    <th>Additional Information</th>
+                                                    <th>Doctor's Signature</th>
+                                                    <th>Signed Date</th>
                                                     <th>Action</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                @foreach ($appointments as $item)
+                                                @foreach ($patientData as $item)
                                                     <tr>
                                                         <td>{{ $item->id }}</td>
-                                                        <td>{{ $item->availability()->title }}</td>
-                                                        <td>{{ $item->doctor()->name }}</td>
+                                                        <td>{{ $item->appointment()->appointment_name }}</td>
+
                                                         <td>{{ $item->patient()->name }}</td>
-                                                        <td>{{ $item->disease()->disease_name }}</td>
+                                                        <td>{{ $item->doctor()->name }}</td>
+                                                        <td>{{ $item->date }}</td>
+                                                        <td>{{ $item->medication }}</td>
+                                                        <td>{{ $item->additional_inf }}</td>
+                                                        <td>{{ $item->sign_of_doctor }}</td>
+                                                        <td>{{ $item->signed_date }}</td>
                                                         <td>
-                                                            <a href="{{ url('appointment/'.$item->id.'/edit') }}" class="btn btn-success mx-2">Edit</a>
-                                                            <a href="{{ url('appointment/'.$item->id.'/delete') }}" class="btn btn-danger mx-1" onclick="return confirm('Are You Sure?')">Delete</a>
+                                                            <a href="{{ url('prescription/'.$item->id.'/edit') }}" class="btn btn-success mx-2">Edit</a>
+                                                            <a href="{{ url('prescription/'.$item->id.'/delete') }}" class="btn btn-danger mx-1" onclick="return confirm('Are You Sure?')">Delete</a>
                                                         </td>
                                                     </tr>
                                                 @endforeach

@@ -173,7 +173,7 @@
                         <div class="row">
                             <div class="col-12">
                                 <div class="page-title-box d-sm-flex align-items-center justify-content-between">
-                                    <h4 class="mb-sm-0 font-size-18">Appoinments</h4>
+                                    <h4 class="mb-sm-0 font-size-18">Doctors Availabilities</h4>
 
                                 </div>
                             </div>
@@ -185,35 +185,48 @@
                                 <div class="card">
                                     <div class="card-body">
 
-                                        <h4 class="card-title">Appoinments</h4>
+                                        <h4 class="card-title">Doctors Availabilities</h4>
 
                                         <table id="datatable-buttons" class="table table-bordered dt-responsive nowrap w-100">
                                             <thead>
                                                 <tr>
-
                                                     <th>ID</th>
-                                                    <th>Availabilities Id</th>
-                                                    <th>Doctor Id</th>
-                                                    <th>Patient Id</th>
-                                                    <th>Diease Id</th>
+                                                    <th>Title</th>
+                                                    <th>Doctor's ID</th>
+                                                    <th>Day</th>
+                                                    <th>Start Time</th>
+                                                    <th>End Time</th>
                                                     <th>Action</th>
+
+
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                @foreach ($appointments as $item)
-                                                    <tr>
-                                                        <td>{{ $item->id }}</td>
-                                                        <td>{{ $item->availability()->title }}</td>
-                                                        <td>{{ $item->doctor()->name }}</td>
-                                                        <td>{{ $item->patient()->name }}</td>
-                                                        <td>{{ $item->disease()->disease_name }}</td>
-                                                        <td>
-                                                            <a href="{{ url('appointment/'.$item->id.'/edit') }}" class="btn btn-success mx-2">Edit</a>
-                                                            <a href="{{ url('appointment/'.$item->id.'/delete') }}" class="btn btn-danger mx-1" onclick="return confirm('Are You Sure?')">Delete</a>
-                                                        </td>
-                                                    </tr>
+
+                                                @foreach ($availabilities as $item)
+                                                <tr>
+                                                    <td>{{ $item->id }}</td>
+                                                    <td>{{ $item->title }}</td>
+                                                    <td>{{ $item->locatedoctor()->name }}</td>
+                                                    <td>{{ $item->day }}</td>
+                                                    <td>{{ $item->start_time }}</td>
+                                                    <td>{{ $item->end_time }}</td>
+                                                    <td>
+                                                        <a href="{{ url('availability/'.$item->id.'/edit') }}" class="btn btn-success mx-2">Edit</a>
+                                                        <a
+                                                        href="{{ url('availability/'.$item->id.'/delete') }}"
+                                                        class="btn btn-danger mx-1"
+                                                        onclick="return confirm('Are You Sure?')"
+                                                        >
+                                                        Delete
+                                                    </a>
+                                                    </td>
+                                                </tr>
+
                                                 @endforeach
                                             </tbody>
+
+
                                         </table>
                                     </div>
                                 </div>
