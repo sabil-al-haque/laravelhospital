@@ -9,7 +9,7 @@
 <head>
 
         <meta charset="utf-8" />
-        <title>Dashboard | Skote - Admin & Dashboard Template</title>
+        <title>Dashboard | Skoder - Admin & Dashboard Template</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
         <meta content="Themesbrand" name="author" />
@@ -37,11 +37,8 @@
         <!-- Begin page -->
         <div id="layout-wrapper">
 
-
-
-
-            <!-- ========== Left Sidebar Start ========== -->
-            <div class="vertical-menu">
+             <!-- ========== Left Sidebar Start ========== -->
+             <div class="vertical-menu">
 
                 <div data-simplebar >
 
@@ -50,6 +47,12 @@
                         <!-- Left Menu Start -->
                         <ul class="metismenu list-unstyled" id="side-menu">
                             <li class="menu-title" key="t-menu">Menu</li>
+                            <li>
+                                <a href="{{ url('/doctor') }}" key="t-default">
+                                    <i class="bx bx-home-circle"></i>
+                                    <span key="t-dashboards">Dashboard</span>
+                                </a>
+                            </li>
 
                             <li>
                                 <a href="javascript: void(0);" class="has-arrow waves-effect">
@@ -142,6 +145,20 @@
                                     <li><a href="{{ url('/patient') }}" key="t-saas">Patient</a></li>
 
                                 </ul>
+                            </li>
+
+                            <li>
+                                <a href="{{ url('/doctor') }}" key="t-default">
+                                    <i class="bx bx-home-circle"></i>
+                                    <span key="t-dashboards">Profile</span>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="{{ url('/doctor') }}" key="t-default">
+                                    <i class="bx bx-home-circle"></i>
+                                    <span key="t-dashboards">Log Out</span>
+                                </a>
                             </li>
 
 
@@ -359,8 +376,6 @@
 
                 <!-- end modal -->
 
-
-
                 <footer class="footer">
                     <div class="container-fluid">
                         <div class="row">
@@ -404,6 +419,4 @@
         <script src="admin/assets/js/app.js"></script>
     </body>
 
-
-<!-- Mirrored from themesbrand.com/skote-django/layouts/ by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 08 Feb 2024 20:29:26 GMT -->
 </html>

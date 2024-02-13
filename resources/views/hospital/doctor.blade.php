@@ -52,8 +52,8 @@
                 </div>
             </header>
 
-             <!-- ========== Left Sidebar Start ========== -->
-             <div class="vertical-menu">
+              <!-- ========== Left Sidebar Start ========== -->
+            <div class="vertical-menu">
 
                 <div data-simplebar >
 
@@ -62,6 +62,12 @@
                         <!-- Left Menu Start -->
                         <ul class="metismenu list-unstyled" id="side-menu">
                             <li class="menu-title" key="t-menu">Menu</li>
+                            <li>
+                                <a href="{{ url('/doctor') }}" key="t-default">
+                                    <i class="bx bx-home-circle"></i>
+                                    <span key="t-dashboards">Dashboard</span>
+                                </a>
+                            </li>
 
                             <li>
                                 <a href="javascript: void(0);" class="has-arrow waves-effect">
@@ -124,8 +130,6 @@
                                     <span key="t-dashboards">Log Out</span>
                                 </a>
                             </li>
-
-
 
 
 
